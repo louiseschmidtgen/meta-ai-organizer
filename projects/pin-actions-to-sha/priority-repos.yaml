@@ -1,0 +1,38 @@
+# Pin Actions to SHA — Priority Repositories
+# Machine-readable list for AI agents and automation.
+
+project: pin-actions-to-sha
+description: >
+  Pin all GitHub Actions references to full commit SHAs
+  for supply-chain security hardening.
+
+priority_repositories:
+  - name: k8s-snap
+    org: canonical
+    url: https://github.com/canonical/k8s-snap
+    status: todo
+
+  - name: k8s-operator
+    org: canonical
+    url: https://github.com/canonical/k8s-operator
+    status: todo
+
+  - name: k8s-dqlite
+    org: canonical
+    url: https://github.com/canonical/k8s-dqlite
+    status: todo
+
+  - name: k8sd
+    org: canonical
+    url: https://github.com/canonical/k8sd
+    status: todo
+
+  - name: cluster-api-k8s
+    org: canonical
+    url: https://github.com/canonical/cluster-api-k8s
+    status: todo
+
+  - name: microk8s
+    org: canonical
+    url: https://github.com/canonical/microk8s
+    status: todo
