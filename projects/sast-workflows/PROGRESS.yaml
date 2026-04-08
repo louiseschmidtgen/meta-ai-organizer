@@ -1,0 +1,764 @@
+# SAST Workflows — Progress Tracker
+# Tracks semgrep, bandit, and dependency pinning rollout across all repositories.
+#
+# Three tasks per repo:
+#   semgrep     — Semgrep SAST workflow (all repos)
+#   bandit      — Bandit Python SAST (Python repos only)
+#   dep-pinning — Pin pip dependencies with hash verification (repos using pip in CI)
+#
+# Task statuses:
+#   todo          — Not yet processed
+#   pr-open       — PR created and awaiting review/merge
+#   merged        — PR merged
+#   not-applicable — Tool does not apply (e.g. bandit on a Go-only repo)
+#   no-github-dir — Repo has no .github/ directory
+#   no-workflows  — Repo has no workflow files
+#   missing-permissions — No push access (403)
+#   skipped       — Skipped for other reasons
+#
+# Reference PRs (k8s-snap pilot):
+#   Semgrep:      https://github.com/canonical/k8s-snap/pull/2468
+#   Bandit:       https://github.com/canonical/k8s-snap/pull/2466
+#   Dep pinning:  https://github.com/canonical/k8s-snap/pull/2492
+#
+# Language detection (via GitHub API, 2026-04-08):
+#   139 repos have Python → bandit: todo
+#    32 repos have no Python → bandit: not-applicable
+
+started: 2026-04-08
+
+# ──────────────────────────────────────────────
+# Pilot (already completed)
+# ──────────────────────────────────────────────
+pilot:
+  - repo: canonical/k8s-snap
+    semgrep: merged
+    semgrep-pr: https://github.com/canonical/k8s-snap/pull/2468
+    bandit: merged
+    bandit-pr: https://github.com/canonical/k8s-snap/pull/2466
+    dep-pinning: pr-open
+    dep-pinning-pr: https://github.com/canonical/k8s-snap/pull/2492
+
+# ──────────────────────────────────────────────
+# Batch 1 — canonical (a–e range)
+# ──────────────────────────────────────────────
+batch_1:
+  - repo: canonical/calico-rocks
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/calico-rocks/pull/7
+  - repo: canonical/canonical-kubernetes-release-ci
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/cert-manager-rock
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/charm-microk8s
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/charms.proxylib
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/charms.reactive
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/cilium-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/cinder-csi-operator
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/cinder-csi-operator/pull/18
+  - repo: canonical/cluster-api-bootstrap-provider-microk8s
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/cluster-api-control-plane-provider-microk8s
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/cluster-api-k8s
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/cluster-autoscaler-rock
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/contour-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/coredns-rock
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/cri-o-snap
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/csi-driver-nfs-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/csi-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/docker-registry-charm
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/envoy-rock
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/etcd-operator
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/etcd-snaps
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/falco-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/fluent-bit-rock
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/go-migrator
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/grafana-agent-snap
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+
+# ──────────────────────────────────────────────
+# Batch 2 — canonical (h–l range)
+# ──────────────────────────────────────────────
+batch_2:
+  - repo: canonical/harbor-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/hostpath-provisioner
+    semgrep: pr-open
+    bandit: not-applicable
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/hostpath-provisioner/pull/15
+  - repo: canonical/infra-backup-operator
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/ingress-nginx-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/interface-openstack-integration
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/interface-prometheus-manual
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/interface-tls-certificates
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/joule
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/k8s-bundles
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/k8s-conformance
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/k8s-dqlite
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/k8s-microcluster
+    semgrep: pr-open
+    bandit: not-applicable
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/k8s-microcluster/pull/7
+  - repo: canonical/k8s-operator
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/k8s-snap-api
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/k8s-test-harness
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/k8s-workflows
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/k8sd
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/kepler-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/keystone-k8s-auth-operator
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/kine
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/kube-bench
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/kube-galaxy-test
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/kvsql-dqlite
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/layer-basic
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/loadbalancer-interface
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+
+# ──────────────────────────────────────────────
+# Batch 3 — canonical (l–m range)
+# ──────────────────────────────────────────────
+batch_3:
+  - repo: canonical/longhorn-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/mayastor
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/mayastor-control-plane
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/metallb-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/metrics-server-rock
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/microk8s
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/microk8s-addons-repo-template
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/microk8s-aws-addons
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/microk8s-benchmarks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/microk8s-cluster-agent
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/microk8s-community-addons
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/microk8s-content-demo-snap
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/microk8s-core-addons
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/microk8s-integrator-macos
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/microk8s-integrator-windows
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/microk8s.io
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/multus-rock
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/mutating-pebble-webhook-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/nrpe-external-master-interface
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/nvidia-gpu-operator-tf
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: canonical/ops-lib-manifest
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/ops-reactive-interface
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/pause-rock
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/pinniped-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/rawfile-localpv
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+
+# ──────────────────────────────────────────────
+# Batch 4 — canonical (r–w) + charmed-kubernetes (start)
+# ──────────────────────────────────────────────
+batch_4:
+  - repo: canonical/rawfile-localpv-operator
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/serialized-data-interface
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/sriov-dpdk-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/ubuntu.com
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/velero-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/vsphere-csi-rocks
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: canonical/whereabouts-rock
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/.github
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/actions-operator
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/aws-k8s-storage
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/bundle
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/cdk-addons
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/cdk-field-agent
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/cdk-network-spaces-testing
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: charmed-kubernetes/cdk-offline
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: charmed-kubernetes/cdk-release-checkers
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/cdk-shrinkwrap
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/ceph-csi-operator
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-aws-cloud-provider
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-aws-iam
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-azure-cloud-provider
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-build-interface
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-calico
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-cilium
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-containerd
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+
+# ──────────────────────────────────────────────
+# Batch 5 — charmed-kubernetes (charm-c–charm-l range)
+# ──────────────────────────────────────────────
+batch_5:
+  - repo: charmed-kubernetes/charm-coredns
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-docker
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-flannel
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-gcp-cloud-provider
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-kata
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-kube-ovn
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-kube-state-metrics
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-kube-virt
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-kubeapi-load-balancer
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-kubernetes-control-plane
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-kubernetes-e2e
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-kubernetes-worker
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-lib-contextual-status
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-lib-interface-container-runtime
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-lib-interface-external-cloud-provider
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-lib-interface-kube-dns
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-lib-interface-kubernetes-cni
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-lib-interface-tokens
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-lib-kubernetes-snaps
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-lib-reconciler
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-metallb-speaker
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-multus
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-sriov-cni
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-sriov-network-device-plugin
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/charm-volcano
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+
+# ──────────────────────────────────────────────
+# Batch 6 — charmed-kubernetes (cluster–k range)
+# ──────────────────────────────────────────────
+batch_6:
+  - repo: charmed-kubernetes/cluster-api-bootstrap-provider-charmed-k8s
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: charmed-kubernetes/cluster-api-charmed-k8s-e2e
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/cluster-api-control-plane-provider-charmed-k8s
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: charmed-kubernetes/cluster-api-provider-juju
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: charmed-kubernetes/conctl
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/gcp-k8s-storage
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/integration-tests
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/interface-aws-iam
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/interface-cluster-dns
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/interface-container-runtime
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/interface-k8s-service
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/interface-kube-masters
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/interface-prometheus
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/interface-untrusted-container-runtime
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/jenkins
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/jenkins/pull/1673
+  - repo: charmed-kubernetes/kube-bench-config
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: charmed-kubernetes/kube-state-metrics-operator
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/kubernetes-dashboard-operator
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/kubernetes-docs
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/kubernetes-libs
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/kubernetes-metrics-server-operator
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/kubernetes-samples
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: charmed-kubernetes/layer-apt
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/layer-canal
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/layer-cis-benchmark
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+
+# ──────────────────────────────────────────────
+# Batch 7 — charmed-kubernetes (l–w range)
+# ──────────────────────────────────────────────
+batch_7:
+  - repo: charmed-kubernetes/layer-container-runtime-common
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/layer-coordinator
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/layer-easyrsa
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/layer-etcd
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/layer-kubernetes-common
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/layer-kubernetes-master-worker-base
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/layer-kubernetes-node-base
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/layer-leadership
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/layer-nagios
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/layer-snap
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/layer-tigera-secure-ee
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/localhost-ci-setup
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: charmed-kubernetes/metallb-operator
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/nvidia
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/opa-gatekeeper-operators
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/openstack-cloud-controller-operator
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/pytest-operator
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/pytest-operator-template
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/snap-kubernetes-worker
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
+  - repo: charmed-kubernetes/vsphere-cloud-provider
+    semgrep: todo
+    bandit: todo
+    dep-pinning: todo
+  - repo: charmed-kubernetes/workflows
+    semgrep: todo
+    bandit: not-applicable
+    dep-pinning: todo
