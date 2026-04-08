@@ -10,29 +10,47 @@ priority_repositories:
   - name: k8s-snap
     org: canonical
     url: https://github.com/canonical/k8s-snap
-    status: todo
+    status: in-progress
+    pr: https://github.com/canonical/k8s-snap/pull/2491
+    author: bschimke95
+    notes: PR already opened by teammate
 
   - name: k8s-operator
     org: canonical
     url: https://github.com/canonical/k8s-operator
-    status: todo
+    status: in-progress
+    pr: https://github.com/canonical/k8s-operator/pull/913
+    author: louiseschmidtgen
+    notes: PR opened for action SHA pinning
 
   - name: k8s-dqlite
     org: canonical
     url: https://github.com/canonical/k8s-dqlite
-    status: todo
+    status: in-progress
+    pr: https://github.com/canonical/k8s-dqlite/pull/354
+    author: louiseschmidtgen
+    notes: PR opened for action SHA pinning
 
   - name: k8sd
     org: canonical
     url: https://github.com/canonical/k8sd
-    status: todo
+    status: in-progress
+    pr: https://github.com/canonical/k8sd/pull/30
+    author: louiseschmidtgen
+    notes: PR opened for action SHA pinning
 
   - name: cluster-api-k8s
     org: canonical
     url: https://github.com/canonical/cluster-api-k8s
-    status: todo
+    status: in-progress
+    pr: https://github.com/canonical/cluster-api-k8s/pull/216
+    author: louiseschmidtgen
+    notes: PR opened for action SHA pinning
 
   - name: microk8s
     org: canonical
     url: https://github.com/canonical/microk8s
-    status: todo
+    status: in-progress
+    pr: https://github.com/canonical/microk8s/pull/5449
+    author: louiseschmidtgen
+    notes: PR opened for action SHA pinning

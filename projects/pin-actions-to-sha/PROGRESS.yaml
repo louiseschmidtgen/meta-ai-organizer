@@ -1,0 +1,826 @@
+# Pin Actions to SHA — Progress Tracker
+# Tracks every repository processed, PRs created, and status.
+#
+# Statuses:
+#   pr-open       — PR created and awaiting review/merge
+#   already-pinned — All actions were already pinned to SHAs
+#   no-workflows  — Repo has no GitHub Actions workflow files
+#   no-github-dir — Repo has no .github/ directory
+#   archived      — Repository is archived on GitHub
+#   missing-permissions — No push access (403)
+#   skipped       — Skipped for other reasons (private, mx-prefix, etc.)
+#   todo          — Not yet processed
+
+branch_name: KU-5612/pin-actions-to-sha
+commit_message: "ci: pin GitHub Actions to commit SHAs"
+started: 2026-04-07
+
+# ──────────────────────────────────────────────
+# Priority Repositories (canonical org)
+# ──────────────────────────────────────────────
+priority_repositories:
+  - repo: canonical/k8s-snap
+    status: pr-open
+    pr: https://github.com/canonical/k8s-snap/pull/2491
+    author: bschimke95
+    notes: PR opened by teammate
+
+  - repo: canonical/k8s-operator
+    status: pr-open
+    pr: https://github.com/canonical/k8s-operator/pull/913
+    author: louiseschmidtgen
+
+  - repo: canonical/k8s-dqlite
+    status: pr-open
+    pr: https://github.com/canonical/k8s-dqlite/pull/354
+    author: louiseschmidtgen
+
+  - repo: canonical/k8sd
+    status: pr-open
+    pr: https://github.com/canonical/k8sd/pull/30
+    author: louiseschmidtgen
+
+  - repo: canonical/cluster-api-k8s
+    status: pr-open
+    pr: https://github.com/canonical/cluster-api-k8s/pull/216
+    author: louiseschmidtgen
+
+  - repo: canonical/microk8s
+    status: pr-open
+    pr: https://github.com/canonical/microk8s/pull/5449
+    author: louiseschmidtgen
+
+# ──────────────────────────────────────────────
+# Batch 1 — canonical org (a–c range)
+# Completed: 2026-04-07
+# ──────────────────────────────────────────────
+batch_1:
+  - repo: canonical/calico-rocks
+    status: pr-open
+    pr: https://github.com/canonical/calico-rocks/pull/6
+
+  - repo: canonical/canonical-kubernetes-release-ci
+    status: pr-open
+    pr: https://github.com/canonical/canonical-kubernetes-release-ci/pull/83
+
+  - repo: canonical/cert-manager-rock
+    status: pr-open
+    pr: https://github.com/canonical/cert-manager-rock/pull/12
+
+  - repo: canonical/charm-microk8s
+    status: pr-open
+    pr: https://github.com/canonical/charm-microk8s/pull/140
+
+  - repo: canonical/charms.proxylib
+    status: pr-open
+    pr: https://github.com/canonical/charms.proxylib/pull/9
+
+  - repo: canonical/charms.reactive
+    status: pr-open
+    pr: https://github.com/canonical/charms.reactive/pull/270
+
+  - repo: canonical/cilium-rocks
+    status: pr-open
+    pr: https://github.com/canonical/cilium-rocks/pull/53
+
+  - repo: canonical/cinder-csi-operator
+    status: pr-open
+    pr: https://github.com/canonical/cinder-csi-operator/pull/17
+
+  - repo: canonical/cluster-api-bootstrap-provider-microk8s
+    status: pr-open
+    pr: https://github.com/canonical/cluster-api-bootstrap-provider-microk8s/pull/126
+
+  - repo: canonical/cluster-api-control-plane-provider-microk8s
+    status: pr-open
+    pr: https://github.com/canonical/cluster-api-control-plane-provider-microk8s/pull/78
+
+# ──────────────────────────────────────────────
+# Batch 2 — canonical org (c–e range)
+# Completed: 2026-04-07
+# ──────────────────────────────────────────────
+batch_2:
+  - repo: canonical/cluster-autoscaler-rock
+    status: pr-open
+    pr: https://github.com/canonical/cluster-autoscaler-rock/pull/19
+
+  - repo: canonical/contour-rocks
+    status: pr-open
+    pr: https://github.com/canonical/contour-rocks/pull/15
+
+  - repo: canonical/coredns-rock
+    status: pr-open
+    pr: https://github.com/canonical/coredns-rock/pull/65
+
+  - repo: canonical/cri-o-snap
+    status: pr-open
+    pr: https://github.com/canonical/cri-o-snap/pull/6
+
+  - repo: canonical/csi-driver-nfs-rocks
+    status: pr-open
+    pr: https://github.com/canonical/csi-driver-nfs-rocks/pull/12
+
+  - repo: canonical/csi-rocks
+    status: pr-open
+    pr: https://github.com/canonical/csi-rocks/pull/38
+
+  - repo: canonical/docker-registry-charm
+    status: pr-open
+    pr: https://github.com/canonical/docker-registry-charm/pull/76
+
+  - repo: canonical/envoy-rock
+    status: pr-open
+    pr: https://github.com/canonical/envoy-rock/pull/28
+
+  - repo: canonical/etcd-operator
+    status: already-pinned
+
+  - repo: canonical/etcd-snaps
+    status: pr-open
+    pr: https://github.com/canonical/etcd-snaps/pull/33
+
+# ──────────────────────────────────────────────
+# Batch 3 — canonical org (f–i range)
+# Completed: 2026-04-07
+# ──────────────────────────────────────────────
+batch_3:
+  - repo: canonical/falco-rocks
+    status: pr-open
+    pr: https://github.com/canonical/falco-rocks/pull/25
+
+  - repo: canonical/fluent-bit-rock
+    status: pr-open
+    pr: https://github.com/canonical/fluent-bit-rock/pull/15
+
+  - repo: canonical/go-migrator
+    status: no-workflows
+
+  - repo: canonical/grafana-agent-snap
+    status: missing-permissions
+    notes: "403 — no push access"
+
+  - repo: canonical/harbor-rocks
+    status: pr-open
+    pr: https://github.com/canonical/harbor-rocks/pull/29
+
+  - repo: canonical/hostpath-provisioner
+    status: pr-open
+    pr: https://github.com/canonical/hostpath-provisioner/pull/14
+
+  - repo: canonical/infra-backup-operator
+    status: pr-open
+    pr: https://github.com/canonical/infra-backup-operator/pull/15
+
+  - repo: canonical/ingress-nginx-rocks
+    status: pr-open
+    pr: https://github.com/canonical/ingress-nginx-rocks/pull/11
+
+  - repo: canonical/interface-openstack-integration
+    status: pr-open
+    pr: https://github.com/canonical/interface-openstack-integration/pull/21
+
+  - repo: canonical/interface-prometheus-manual
+    status: no-workflows
+
+# ──────────────────────────────────────────────
+# Batch 4 — canonical org (i–k range)
+# Completed: 2026-04-08
+# ──────────────────────────────────────────────
+batch_4:
+  - repo: canonical/interface-tls-certificates
+    status: pr-open
+    pr: https://github.com/canonical/interface-tls-certificates/pull/39
+
+  - repo: canonical/joule
+    status: pr-open
+    pr: https://github.com/canonical/joule/pull/36
+
+  - repo: canonical/k8s-bundles
+    status: pr-open
+    pr: https://github.com/canonical/k8s-bundles/pull/59
+
+  - repo: canonical/k8s-conformance
+    status: missing-permissions
+    notes: "403 — no clone access (private or restricted)"
+
+  - repo: canonical/k8s-microcluster
+    status: pr-open
+    pr: https://github.com/canonical/k8s-microcluster/pull/6
+
+  - repo: canonical/k8s-snap-api
+    status: pr-open
+    pr: https://github.com/canonical/k8s-snap-api/pull/53
+
+  - repo: canonical/k8s-test-harness
+    status: pr-open
+    pr: https://github.com/canonical/k8s-test-harness/pull/44
+
+  - repo: canonical/k8s-workflows
+    status: pr-open
+    pr: https://github.com/canonical/k8s-workflows/pull/58
+
+  - repo: canonical/kepler-rocks
+    status: pr-open
+    pr: https://github.com/canonical/kepler-rocks/pull/7
+
+  - repo: canonical/keystone-k8s-auth-operator
+    status: pr-open
+    pr: https://github.com/canonical/keystone-k8s-auth-operator/pull/36
+
+# ──────────────────────────────────────────────
+# Batch 5 — canonical org (k–m range)
+# Completed: 2026-04-08
+# ──────────────────────────────────────────────
+batch_5:
+  - repo: canonical/kine
+    status: pr-open
+    pr: https://github.com/canonical/kine/pull/34
+
+  - repo: canonical/kube-bench
+    status: pr-open
+    pr: https://github.com/canonical/kube-bench/pull/5
+
+  - repo: canonical/kube-galaxy-test
+    status: pr-open
+    pr: https://github.com/canonical/kube-galaxy-test/pull/109
+
+  - repo: canonical/kvsql-dqlite
+    status: no-github-dir
+
+  - repo: canonical/layer-basic
+    status: pr-open
+    pr: https://github.com/canonical/layer-basic/pull/232
+
+  - repo: canonical/loadbalancer-interface
+    status: pr-open
+    pr: https://github.com/canonical/loadbalancer-interface/pull/20
+
+  - repo: canonical/longhorn-rocks
+    status: pr-open
+    pr: https://github.com/canonical/longhorn-rocks/pull/39
+
+  - repo: canonical/mayastor
+    status: pr-open
+    pr: https://github.com/canonical/mayastor/pull/1
+
+  - repo: canonical/mayastor-control-plane
+    status: pr-open
+    pr: https://github.com/canonical/mayastor-control-plane/pull/3
+
+  - repo: canonical/metallb-rocks
+    status: pr-open
+    pr: https://github.com/canonical/metallb-rocks/pull/27
+
+# ──────────────────────────────────────────────
+# Batch 6 — canonical org (m range)
+# Completed: 2026-04-08
+# ──────────────────────────────────────────────
+batch_6:
+  - repo: canonical/metrics-server-rock
+    status: pr-open
+    pr: https://github.com/canonical/metrics-server-rock/pull/22
+
+  - repo: canonical/microk8s-addons-repo-template
+    status: pr-open
+    pr: https://github.com/canonical/microk8s-addons-repo-template/pull/12
+
+  - repo: canonical/microk8s-aws-addons
+    status: pr-open
+    pr: https://github.com/canonical/microk8s-aws-addons/pull/29
+
+  - repo: canonical/microk8s-benchmarks
+    status: pr-open
+    pr: https://github.com/canonical/microk8s-benchmarks/pull/25
+
+  - repo: canonical/microk8s-cluster-agent
+    status: pr-open
+    pr: https://github.com/canonical/microk8s-cluster-agent/pull/73
+
+  - repo: canonical/microk8s-community-addons
+    status: pr-open
+    pr: https://github.com/canonical/microk8s-community-addons/pull/288
+
+  - repo: canonical/microk8s-content-demo-snap
+    status: no-github-dir
+
+  - repo: canonical/microk8s-core-addons
+    status: pr-open
+    pr: https://github.com/canonical/microk8s-core-addons/pull/391
+
+  - repo: canonical/microk8s-integrator-macos
+    status: no-github-dir
+
+  - repo: canonical/microk8s-integrator-windows
+    status: no-github-dir
+
+# ──────────────────────────────────────────────
+# Batch 7 — canonical org (m–r range)
+# Completed: 2026-04-08
+# ──────────────────────────────────────────────
+batch_7:
+  - repo: canonical/microk8s.io
+    status: missing-permissions
+    notes: "403 — no push access"
+
+  - repo: canonical/multus-rock
+    status: pr-open
+    pr: https://github.com/canonical/multus-rock/pull/18
+
+  - repo: canonical/mutating-pebble-webhook-rocks
+    status: pr-open
+    pr: https://github.com/canonical/mutating-pebble-webhook-rocks/pull/31
+
+  - repo: canonical/nrpe-external-master-interface
+    status: no-github-dir
+
+  - repo: canonical/nvidia-gpu-operator-tf
+    status: no-github-dir
+
+  - repo: canonical/ops-lib-manifest
+    status: pr-open
+    pr: https://github.com/canonical/ops-lib-manifest/pull/40
+
+  - repo: canonical/ops-reactive-interface
+    status: pr-open
+    pr: https://github.com/canonical/ops-reactive-interface/pull/6
+
+  - repo: canonical/pause-rock
+    status: pr-open
+    pr: https://github.com/canonical/pause-rock/pull/3
+
+  - repo: canonical/pinniped-rocks
+    status: pr-open
+    pr: https://github.com/canonical/pinniped-rocks/pull/9
+
+  - repo: canonical/rawfile-localpv
+    status: pr-open
+    pr: https://github.com/canonical/rawfile-localpv/pull/47
+
+# ──────────────────────────────────────────────
+# Batch 8 — canonical org (r–w range)
+# Completed: 2026-04-08
+# ──────────────────────────────────────────────
+batch_8:
+  - repo: canonical/rawfile-localpv-operator
+    status: pr-open
+    pr: https://github.com/canonical/rawfile-localpv-operator/pull/13
+
+  - repo: canonical/serialized-data-interface
+    status: pr-open
+    pr: https://github.com/canonical/serialized-data-interface/pull/56
+
+  - repo: canonical/sriov-dpdk-rocks
+    status: pr-open
+    pr: https://github.com/canonical/sriov-dpdk-rocks/pull/15
+
+  - repo: canonical/ubuntu.com
+    status: missing-permissions
+    notes: "403 — no push access"
+
+  - repo: canonical/velero-rocks
+    status: pr-open
+    pr: https://github.com/canonical/velero-rocks/pull/19
+
+  - repo: canonical/vsphere-csi-rocks
+    status: pr-open
+    pr: https://github.com/canonical/vsphere-csi-rocks/pull/7
+
+  - repo: canonical/whereabouts-rock
+    status: pr-open
+    pr: https://github.com/canonical/whereabouts-rock/pull/19
+
+# ──────────────────────────────────────────────
+# charmed-kubernetes — Archived (skip)
+# ──────────────────────────────────────────────
+charmed_kubernetes_archived:
+  - charmed-kubernetes/bird-operator
+  - charmed-kubernetes/charm-kubernetes-autoscaler
+  - charmed-kubernetes/k8s-dashboard-operator
+  - charmed-kubernetes/k8s-keystone-auth-operator
+
+# ──────────────────────────────────────────────
+# CK Batch 1 — charmed-kubernetes (.–c range)
+# Completed: 2026-04-08
+# ──────────────────────────────────────────────
+ck_batch_1:
+  - repo: charmed-kubernetes/.github
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/.github/pull/9
+
+  - repo: charmed-kubernetes/actions-operator
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/actions-operator/pull/104
+
+  - repo: charmed-kubernetes/aws-k8s-storage
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/aws-k8s-storage/pull/20
+
+  - repo: charmed-kubernetes/bundle
+    status: no-workflows
+
+  - repo: charmed-kubernetes/cdk-addons
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/cdk-addons/pull/237
+
+  - repo: charmed-kubernetes/cdk-field-agent
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/cdk-network-spaces-testing
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/cdk-offline
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/cdk-release-checkers
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/cdk-shrinkwrap
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/cdk-shrinkwrap/pull/32
+
+# ──────────────────────────────────────────────
+# CK Batch 2 — charmed-kubernetes (c range)
+# Completed: 2026-04-08
+# ──────────────────────────────────────────────
+ck_batch_2:
+  - repo: charmed-kubernetes/ceph-csi-operator
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/ceph-csi-operator/pull/72
+
+  - repo: charmed-kubernetes/charm-aws-cloud-provider
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-aws-cloud-provider/pull/11
+
+  - repo: charmed-kubernetes/charm-aws-iam
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-aws-iam/pull/15
+
+  - repo: charmed-kubernetes/charm-azure-cloud-provider
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-azure-cloud-provider/pull/26
+
+  - repo: charmed-kubernetes/charm-build-interface
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/charm-calico
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-calico/pull/120
+
+  - repo: charmed-kubernetes/charm-cilium
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-cilium/pull/34
+
+  - repo: charmed-kubernetes/charm-containerd
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-containerd/pull/99
+
+  - repo: charmed-kubernetes/charm-coredns
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-coredns/pull/44
+
+  - repo: charmed-kubernetes/charm-docker
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-docker/pull/21
+
+# ──────────────────────────────────────────────
+# CK Batch 3 — charmed-kubernetes (charm-f–charm-k range)
+# Completed: 2026-04-08
+# ──────────────────────────────────────────────
+ck_batch_3:
+  - repo: charmed-kubernetes/charm-flannel
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-flannel/pull/95
+
+  - repo: charmed-kubernetes/charm-gcp-cloud-provider
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-gcp-cloud-provider/pull/6
+
+  - repo: charmed-kubernetes/charm-kata
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-kata/pull/15
+
+  - repo: charmed-kubernetes/charm-kube-ovn
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-kube-ovn/pull/63
+
+  - repo: charmed-kubernetes/charm-kube-state-metrics
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/charm-kube-virt
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-kube-virt/pull/25
+
+  - repo: charmed-kubernetes/charm-kubeapi-load-balancer
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-kubeapi-load-balancer/pull/48
+
+  - repo: charmed-kubernetes/charm-kubernetes-control-plane
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-kubernetes-control-plane/pull/416
+
+  - repo: charmed-kubernetes/charm-kubernetes-e2e
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-kubernetes-e2e/pull/45
+
+  - repo: charmed-kubernetes/charm-kubernetes-worker
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-kubernetes-worker/pull/211
+
+# ──────────────────────────────────────────────
+# CK Batch 4 — charmed-kubernetes (charm-lib–charm-m range)
+# Completed: 2026-04-08
+# ──────────────────────────────────────────────
+ck_batch_4:
+  - repo: charmed-kubernetes/charm-lib-contextual-status
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-lib-contextual-status/pull/5
+
+  - repo: charmed-kubernetes/charm-lib-interface-container-runtime
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-lib-interface-container-runtime/pull/2
+
+  - repo: charmed-kubernetes/charm-lib-interface-external-cloud-provider
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-lib-interface-external-cloud-provider/pull/5
+
+  - repo: charmed-kubernetes/charm-lib-interface-kube-dns
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-lib-interface-kube-dns/pull/2
+
+  - repo: charmed-kubernetes/charm-lib-interface-kubernetes-cni
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-lib-interface-kubernetes-cni/pull/2
+
+  - repo: charmed-kubernetes/charm-lib-interface-tokens
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-lib-interface-tokens/pull/2
+
+  - repo: charmed-kubernetes/charm-lib-kubernetes-snaps
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-lib-kubernetes-snaps/pull/39
+
+  - repo: charmed-kubernetes/charm-lib-reconciler
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-lib-reconciler/pull/6
+
+  - repo: charmed-kubernetes/charm-metallb-speaker
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/charm-multus
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-multus/pull/25
+
+# ──────────────────────────────────────────────
+# CK Batch 5 — charmed-kubernetes (charm-s–g range)
+# Completed: 2026-04-08
+# ──────────────────────────────────────────────
+ck_batch_5:
+  - repo: charmed-kubernetes/charm-sriov-cni
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-sriov-cni/pull/21
+
+  - repo: charmed-kubernetes/charm-sriov-network-device-plugin
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-sriov-network-device-plugin/pull/12
+
+  - repo: charmed-kubernetes/charm-volcano
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-volcano/pull/12
+
+  - repo: charmed-kubernetes/cluster-api-bootstrap-provider-charmed-k8s
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/cluster-api-bootstrap-provider-charmed-k8s/pull/10
+
+  - repo: charmed-kubernetes/cluster-api-charmed-k8s-e2e
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/cluster-api-charmed-k8s-e2e/pull/3
+
+  - repo: charmed-kubernetes/cluster-api-control-plane-provider-charmed-k8s
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/cluster-api-control-plane-provider-charmed-k8s/pull/12
+
+  - repo: charmed-kubernetes/cluster-api-provider-juju
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/cluster-api-provider-juju/pull/21
+
+  - repo: charmed-kubernetes/conctl
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/conctl/pull/12
+
+  - repo: charmed-kubernetes/gcp-k8s-storage
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/gcp-k8s-storage/pull/14
+
+  - repo: charmed-kubernetes/integration-tests
+    status: no-github-dir
+
+# ──────────────────────────────────────────────
+# CK Batch 6 — charmed-kubernetes (i–k range)
+# Completed: 2026-04-08
+# ──────────────────────────────────────────────
+ck_batch_6:
+  - repo: charmed-kubernetes/interface-aws-iam
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/interface-cluster-dns
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/interface-container-runtime
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/interface-k8s-service
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/interface-k8s-service/pull/5
+
+  - repo: charmed-kubernetes/interface-kube-masters
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/interface-prometheus
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/interface-untrusted-container-runtime
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/jenkins
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/jenkins/pull/1672
+
+  - repo: charmed-kubernetes/kube-bench-config
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/kube-state-metrics-operator
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/kube-state-metrics-operator/pull/14
+
+# ──────────────────────────────────────────────
+# CK Batch 7 — charmed-kubernetes (k–l range)
+# Completed: 2026-04-08
+# ──────────────────────────────────────────────
+ck_batch_7:
+  - repo: charmed-kubernetes/kubernetes-dashboard-operator
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/kubernetes-dashboard-operator/pull/87
+
+  - repo: charmed-kubernetes/kubernetes-docs
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/kubernetes-docs/pull/911
+
+  - repo: charmed-kubernetes/kubernetes-libs
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/kubernetes-metrics-server-operator
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/kubernetes-metrics-server-operator/pull/7
+
+  - repo: charmed-kubernetes/kubernetes-samples
+    status: missing-permissions
+    notes: "403 — no push access"
+
+  - repo: charmed-kubernetes/layer-apt
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/layer-canal
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/layer-canal/pull/85
+
+  - repo: charmed-kubernetes/layer-cis-benchmark
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/layer-cis-benchmark/pull/8
+
+  - repo: charmed-kubernetes/layer-container-runtime-common
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/layer-coordinator
+    status: no-github-dir
+
+# ──────────────────────────────────────────────
+# CK Batch 8 — charmed-kubernetes (l range)
+# Completed: 2026-04-08
+# ──────────────────────────────────────────────
+ck_batch_8:
+  - repo: charmed-kubernetes/layer-easyrsa
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/layer-easyrsa/pull/45
+
+  - repo: charmed-kubernetes/layer-etcd
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/layer-etcd/pull/219
+
+  - repo: charmed-kubernetes/layer-kubernetes-common
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/layer-kubernetes-common/pull/48
+
+  - repo: charmed-kubernetes/layer-kubernetes-master-worker-base
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/layer-kubernetes-master-worker-base/pull/18
+
+  - repo: charmed-kubernetes/layer-kubernetes-node-base
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/layer-kubernetes-node-base/pull/19
+
+  - repo: charmed-kubernetes/layer-leadership
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/layer-nagios
+    status: no-github-dir
+
+  - repo: charmed-kubernetes/layer-snap
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/layer-snap/pull/3
+
+  - repo: charmed-kubernetes/layer-tigera-secure-ee
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/layer-tigera-secure-ee/pull/44
+
+  - repo: charmed-kubernetes/localhost-ci-setup
+    status: missing-permissions
+    notes: "403 — no push access"
+
+# ──────────────────────────────────────────────
+# CK Batch 9 — charmed-kubernetes (m–w range)
+# Completed: 2026-04-08
+# ──────────────────────────────────────────────
+ck_batch_9:
+  - repo: charmed-kubernetes/metallb-operator
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/metallb-operator/pull/43
+
+  - repo: charmed-kubernetes/nvidia
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/nvidia/pull/5
+
+  - repo: charmed-kubernetes/opa-gatekeeper-operators
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/opa-gatekeeper-operators/pull/18
+
+  - repo: charmed-kubernetes/openstack-cloud-controller-operator
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/openstack-cloud-controller-operator/pull/22
+
+  - repo: charmed-kubernetes/pytest-operator
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/pytest-operator/pull/156
+
+  - repo: charmed-kubernetes/pytest-operator-template
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/pytest-operator-template/pull/8
+
+  - repo: charmed-kubernetes/snap-kubernetes-worker
+    status: missing-permissions
+    notes: "403 — no push access"
+
+  - repo: charmed-kubernetes/vsphere-cloud-provider
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/vsphere-cloud-provider/pull/38
+
+  - repo: charmed-kubernetes/workflows
+    status: pr-open
+    pr: https://github.com/charmed-kubernetes/workflows/pull/11
+
+# ──────────────────────────────────────────────
+# Archived Repositories (skip — no action needed)
+# ──────────────────────────────────────────────
+archived_repositories:
+  - canonical/bundle-kubeflow-ui
+  - canonical/bundle-modeldb
+  - canonical/interface-ambassador
+  - canonical/interface-oidc-client
+  - canonical/interface-service-mesh
+  - canonical/kfserving-operator
+  - canonical/kubernetes-dqlite
+  - canonical/kubernetes-rapper
+  - canonical/layer-metrics
+  - canonical/operator-schemas
+  - canonical/python-libjuju
+  - canonical/pytorch-operator
+  - canonical/spark-operator
+  - canonical/tfjob-operator
+
+# ──────────────────────────────────────────────
+# Skipped Repositories
+# ──────────────────────────────────────────────
+skipped_repositories:
+  - pattern: "canonical/_mx-*"
+    reason: Internal infrastructure repos, skipped per user request
+  - pattern: "canonical/mx-*"
+    reason: Internal infrastructure repos, skipped per user request
+  - pattern: "canonical/k8s-internal-docs"
+    reason: Private repo
+  - pattern: "canonical/k8s-kpis"
+    reason: Private repo
+  - pattern: "canonical/k8s-snap-api-private"
+    reason: Private repo
+  - pattern: "canonical/k8s-snap-disa-stig-checker"
+    reason: Private repo
+  - pattern: "canonical/k8s-scripts"
+    reason: Private repo
+  - pattern: "canonical/sd-tools"
+    reason: Private repo
+  - pattern: "canonical/podpatrol"
+    reason: Private repo
+  - pattern: "canonical/sriov-cni-charts"
+    reason: Private repo
+  - pattern: "canonical/cluster-api-provider-lxd"
+    reason: Private repo
+  - pattern: "canonical/microk8s-dqlite-ng-benchmark"
+    reason: Private repo
