@@ -263,6 +263,7 @@ batch_2:
     bandit: pr-open
     dep-pinning: pr-open
     pr: https://github.com/canonical/keystone-k8s-auth-operator/pull/37
+    bandit-fix-pr: https://github.com/canonical/keystone-k8s-auth-operator/pull/38
   - repo: canonical/kine
     semgrep: pr-open
     bandit: not-applicable
@@ -278,6 +279,7 @@ batch_2:
     bandit: pr-open
     dep-pinning: pr-open
     pr: https://github.com/canonical/kube-galaxy-test/pull/112
+    bandit-fix-pr: https://github.com/canonical/kube-galaxy-test/pull/113
   - repo: canonical/kvsql-dqlite
     semgrep: no-github-dir
     bandit: no-github-dir
@@ -292,6 +294,7 @@ batch_2:
     bandit: pr-open
     dep-pinning: pr-open
     pr: https://github.com/canonical/loadbalancer-interface/pull/21
+    bandit-fix-pr: https://github.com/canonical/loadbalancer-interface/pull/22
 
 # ──────────────────────────────────────────────
 # Batch 3 — canonical (l–m range)
@@ -307,226 +310,282 @@ batch_3:
     bandit: pr-open
     dep-pinning: pr-open
     pr: https://github.com/canonical/mayastor/pull/2
+    bandit-fix-pr: https://github.com/canonical/mayastor/pull/3
   - repo: canonical/mayastor-control-plane
     semgrep: pr-open
     bandit: pr-open
     dep-pinning: pr-open
     pr: https://github.com/canonical/mayastor-control-plane/pull/4
+    bandit-fix-pr: https://github.com/canonical/mayastor-control-plane/pull/5
   - repo: canonical/metallb-rocks
     semgrep: pr-open
     bandit: pr-open
     dep-pinning: pr-open
     pr: https://github.com/canonical/metallb-rocks/pull/28
   - repo: canonical/metrics-server-rock
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/metrics-server-rock/pull/23
   - repo: canonical/microk8s
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/microk8s/pull/5451
+    bandit-fix-pr: https://github.com/canonical/microk8s/pull/5452
   - repo: canonical/microk8s-addons-repo-template
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/microk8s-addons-repo-template/pull/13
   - repo: canonical/microk8s-aws-addons
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/microk8s-aws-addons/pull/30
   - repo: canonical/microk8s-benchmarks
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/microk8s-benchmarks/pull/26
   - repo: canonical/microk8s-cluster-agent
-    semgrep: todo
+    semgrep: pr-open
     bandit: not-applicable
-    dep-pinning: todo
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/microk8s-cluster-agent/pull/74
   - repo: canonical/microk8s-community-addons
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/microk8s-community-addons/pull/289
+    bandit-fix-pr: https://github.com/canonical/microk8s-community-addons/pull/290
   - repo: canonical/microk8s-content-demo-snap
-    semgrep: todo
+    semgrep: no-github-dir
     bandit: not-applicable
-    dep-pinning: todo
+    dep-pinning: no-github-dir
   - repo: canonical/microk8s-core-addons
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/microk8s-core-addons/pull/392
+    bandit-fix-pr: https://github.com/canonical/microk8s-core-addons/pull/393
   - repo: canonical/microk8s-integrator-macos
-    semgrep: todo
+    semgrep: no-github-dir
     bandit: not-applicable
-    dep-pinning: todo
+    dep-pinning: no-github-dir
   - repo: canonical/microk8s-integrator-windows
-    semgrep: todo
+    semgrep: no-github-dir
     bandit: not-applicable
-    dep-pinning: todo
+    dep-pinning: no-github-dir
   - repo: canonical/microk8s.io
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: no-push-access
+    bandit: no-push-access
+    dep-pinning: no-push-access
   - repo: canonical/multus-rock
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/multus-rock/pull/19
   - repo: canonical/mutating-pebble-webhook-rocks
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/mutating-pebble-webhook-rocks/pull/33
   - repo: canonical/nrpe-external-master-interface
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: no-github-dir
+    bandit: no-github-dir
+    dep-pinning: no-github-dir
   - repo: canonical/nvidia-gpu-operator-tf
-    semgrep: todo
+    semgrep: no-github-dir
     bandit: not-applicable
-    dep-pinning: todo
+    dep-pinning: no-github-dir
   - repo: canonical/ops-lib-manifest
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/ops-lib-manifest/pull/41
   - repo: canonical/ops-reactive-interface
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/ops-reactive-interface/pull/7
+    bandit-fix-pr: https://github.com/canonical/ops-reactive-interface/pull/8
   - repo: canonical/pause-rock
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/pause-rock/pull/4
   - repo: canonical/pinniped-rocks
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/pinniped-rocks/pull/10
   - repo: canonical/rawfile-localpv
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/rawfile-localpv/pull/48
+    bandit-fix-pr: https://github.com/canonical/rawfile-localpv/pull/49
 
 # ──────────────────────────────────────────────
 # Batch 4 — canonical (r–w) + charmed-kubernetes (start)
 # ──────────────────────────────────────────────
 batch_4:
   - repo: canonical/rawfile-localpv-operator
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/rawfile-localpv-operator/pull/14
   - repo: canonical/serialized-data-interface
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/serialized-data-interface/pull/57
+    bandit-fix-pr: https://github.com/canonical/serialized-data-interface/pull/58
   - repo: canonical/sriov-dpdk-rocks
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/sriov-dpdk-rocks/pull/16
   - repo: canonical/ubuntu.com
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: no-push-access
+    bandit: no-push-access
+    dep-pinning: no-push-access
   - repo: canonical/velero-rocks
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/velero-rocks/pull/20
   - repo: canonical/vsphere-csi-rocks
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/vsphere-csi-rocks/pull/8
   - repo: canonical/whereabouts-rock
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/canonical/whereabouts-rock/pull/20
   - repo: charmed-kubernetes/.github
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/.github/pull/10
   - repo: charmed-kubernetes/actions-operator
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/actions-operator/pull/105
   - repo: charmed-kubernetes/aws-k8s-storage
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/aws-k8s-storage/pull/21
+    bandit-fix-pr: https://github.com/charmed-kubernetes/aws-k8s-storage/pull/22
   - repo: charmed-kubernetes/bundle
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/bundle/pull/912
+    bandit-fix-pr: https://github.com/charmed-kubernetes/bundle/pull/913
   - repo: charmed-kubernetes/cdk-addons
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/cdk-addons/pull/238
   - repo: charmed-kubernetes/cdk-field-agent
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: no-github-dir
+    bandit: no-github-dir
+    dep-pinning: no-github-dir
   - repo: charmed-kubernetes/cdk-network-spaces-testing
-    semgrep: todo
+    semgrep: no-github-dir
     bandit: not-applicable
-    dep-pinning: todo
+    dep-pinning: no-github-dir
   - repo: charmed-kubernetes/cdk-offline
-    semgrep: todo
+    semgrep: no-github-dir
     bandit: not-applicable
-    dep-pinning: todo
+    dep-pinning: no-github-dir
   - repo: charmed-kubernetes/cdk-release-checkers
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: no-github-dir
+    bandit: no-github-dir
+    dep-pinning: no-github-dir
   - repo: charmed-kubernetes/cdk-shrinkwrap
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/cdk-shrinkwrap/pull/33
+    bandit-fix-pr: https://github.com/charmed-kubernetes/cdk-shrinkwrap/pull/34
   - repo: charmed-kubernetes/ceph-csi-operator
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/ceph-csi-operator/pull/73
+    bandit-fix-pr: https://github.com/charmed-kubernetes/ceph-csi-operator/pull/74
   - repo: charmed-kubernetes/charm-aws-cloud-provider
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-aws-cloud-provider/pull/12
+    bandit-fix-pr: https://github.com/charmed-kubernetes/charm-aws-cloud-provider/pull/13
   - repo: charmed-kubernetes/charm-aws-iam
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-aws-iam/pull/16
   - repo: charmed-kubernetes/charm-azure-cloud-provider
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-azure-cloud-provider/pull/27
+    bandit-fix-pr: https://github.com/charmed-kubernetes/charm-azure-cloud-provider/pull/28
   - repo: charmed-kubernetes/charm-build-interface
-    semgrep: todo
+    semgrep: no-github-dir
     bandit: not-applicable
-    dep-pinning: todo
+    dep-pinning: no-github-dir
   - repo: charmed-kubernetes/charm-calico
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-calico/pull/121
+    bandit-fix-pr: https://github.com/charmed-kubernetes/charm-calico/pull/122
   - repo: charmed-kubernetes/charm-cilium
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-cilium/pull/35
+    bandit-fix-pr: https://github.com/charmed-kubernetes/charm-cilium/pull/36
   - repo: charmed-kubernetes/charm-containerd
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-containerd/pull/100
+    bandit-fix-pr: https://github.com/charmed-kubernetes/charm-containerd/pull/101
 
 # ──────────────────────────────────────────────
 # Batch 5 — charmed-kubernetes (charm-c–charm-l range)
 # ──────────────────────────────────────────────
 batch_5:
   - repo: charmed-kubernetes/charm-coredns
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-coredns/pull/45
   - repo: charmed-kubernetes/charm-docker
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-docker/pull/22
   - repo: charmed-kubernetes/charm-flannel
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-flannel/pull/96
   - repo: charmed-kubernetes/charm-gcp-cloud-provider
-    semgrep: todo
-    bandit: todo
-    dep-pinning: todo
+    semgrep: pr-open
+    bandit: pr-open
+    dep-pinning: pr-open
+    pr: https://github.com/charmed-kubernetes/charm-gcp-cloud-provider/pull/7
+    bandit-fix-pr: https://github.com/charmed-kubernetes/charm-gcp-cloud-provider/pull/8
   - repo: charmed-kubernetes/charm-kata
     semgrep: todo
     bandit: todo
