@@ -425,7 +425,7 @@ batch_3:
     bandit: pr-open
     dep-pinning: pr-open
     pr: https://github.com/canonical/rawfile-localpv/pull/48
-    bandit-fix-pr: https://github.com/canonical/rawfile-localpv/pull/49
+    bandit-fix-pr: https://github.com/canonical/rawfile-localpv/pull/50
 
 # ──────────────────────────────────────────────
 # Batch 4 — canonical (r–w) + charmed-kubernetes (start)
