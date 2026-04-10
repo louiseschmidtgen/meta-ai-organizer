@@ -6,17 +6,17 @@ An orchestration layer that automatically dispatches AI agent workflows in respo
 
 ## Kubernetes Analogy
 
-| Kubernetes Concept | Agent Equivalent                           | We Already Have |
-| ------------------ | ------------------------------------------ | --------------- |
+| Kubernetes Concept | Agent Equivalent                            | We Already Have |
+| ------------------ | ------------------------------------------- | --------------- |
 | Pod Spec           | Prompt file (`.github/prompts/*.prompt.md`) | ✅               |
-| Container Image    | LLM + MCP tools                           | ✅               |
-| ConfigMap/Secret   | `context/` dirs, Jira/GitHub credentials   | ✅               |
-| Deployment         | Project (`projects/<name>/`)               | ✅               |
-| Job/CronJob        | Scheduled agent runs                       | ❌               |
-| Controller         | Event-driven prompt invocation             | ❌               |
-| etcd               | State store (PROGRESS.yaml)                | ✅ (manual)      |
-| kubelet            | Agent runtime (VS Code / CLI)              | ✅ (manual)      |
-| kube-scheduler     | **This is the gap**                        | ❌               |
+| Container Image    | LLM + MCP tools                             | ✅               |
+| ConfigMap/Secret   | `context/` dirs, Jira/GitHub credentials    | ✅               |
+| Deployment         | Project (`projects/<name>/`)                | ✅               |
+| Job/CronJob        | Scheduled agent runs                        | ❌               |
+| Controller         | Event-driven prompt invocation              | ❌               |
+| etcd               | State store (PROGRESS.yaml)                 | ✅ (manual)      |
+| kubelet            | Agent runtime (VS Code / CLI)               | ✅ (manual)      |
+| kube-scheduler     | **This is the gap**                         | ❌               |
 
 ## Architecture
 
@@ -128,16 +128,16 @@ An orchestration layer that automatically dispatches AI agent workflows in respo
 
 ## Existing Tools in This Space
 
-| Project                   | What it does                                         | Analogy           |
-| ------------------------- | ---------------------------------------------------- | ----------------- |
-| **CrewAI**                | Multi-agent teams with roles, tasks, process flows   | Team of specialists |
-| **LangGraph** (LangChain) | Stateful agent graphs with cycles, checkpoints       | DAG/workflow engine |
-| **AutoGen** (Microsoft)   | Multi-agent conversations with human-in-the-loop     | Chat-based orchestration |
-| **OpenAI Swarm**          | Lightweight agent handoffs                           | Load balancer     |
-| **Semantic Kernel** (MS)  | Plugin-based agent orchestration                     | Middleware        |
-| **Julep**                 | Stateful long-running agent workflows with persistence | Job scheduler   |
-| **AgentOS / Agent Protocol** | Standardized API for agent lifecycle              | Container runtime interface |
-| **Letta (MemGPT)**        | Agents with persistent memory and state management   | Stateful pods     |
+| Project                      | What it does                                           | Analogy                     |
+| ---------------------------- | ------------------------------------------------------ | --------------------------- |
+| **CrewAI**                   | Multi-agent teams with roles, tasks, process flows     | Team of specialists         |
+| **LangGraph** (LangChain)    | Stateful agent graphs with cycles, checkpoints         | DAG/workflow engine         |
+| **AutoGen** (Microsoft)      | Multi-agent conversations with human-in-the-loop       | Chat-based orchestration    |
+| **OpenAI Swarm**             | Lightweight agent handoffs                             | Load balancer               |
+| **Semantic Kernel** (MS)     | Plugin-based agent orchestration                       | Middleware                  |
+| **Julep**                    | Stateful long-running agent workflows with persistence | Job scheduler               |
+| **AgentOS / Agent Protocol** | Standardized API for agent lifecycle                   | Container runtime interface |
+| **Letta (MemGPT)**           | Agents with persistent memory and state management     | Stateful pods               |
 
 ## Date
 
