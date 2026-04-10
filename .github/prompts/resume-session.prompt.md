@@ -1,12 +1,12 @@
+---
+description: "Resume an interrupted multi-repo campaign in a new conversation"
+---
+
 # Resume Session — Continue a Multi-Repo Campaign
 
 ## Purpose
 
 Resume an interrupted multi-repo campaign in a new conversation by restoring context from the progress tracker and project artifacts.
-
-## Model / Agent
-
-GitHub Copilot (Claude) in VS Code — new conversation continuing prior work.
 
 ## Prompt
 
@@ -53,8 +53,3 @@ Clone → run script → apply manual fixups → branch → stage → user signs
 | `{{BATCH_SIZE}}`         | Repos per batch                                           | `10`                                                 |
 | `{{SCRIPT_TIMEOUT}}`     | Timeout for the script in seconds                         | `60`                                                 |
 | `{{ADDITIONAL_CONTEXT}}` | Project-specific notes (SHA caches, fixup patterns, etc.) | See project context dir                              |
-
-## Changelog
-
-- 2026-04-08 — Generalised from pin-actions-specific version
-- 2025-07-24 — Initial version

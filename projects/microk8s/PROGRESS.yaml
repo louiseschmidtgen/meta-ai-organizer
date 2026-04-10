@@ -1,0 +1,57 @@
+project: microk8s
+repo: canonical/microk8s
+fork: louiseschmidtgen/microk8s-1
+branch: python-3.10-bump
+clone: /tmp/microk8s-python-bump
+pr: https://github.com/canonical/microk8s/pull/5453
+status: pr-open
+
+ci:
+  cla-check: pass
+  lint-code: pass
+  unit-tests: pass
+
+tasks:
+  - name: python-3.10-bump
+    status: pr-open
+    commit: "ci: bump Python to 3.10 and pin actions to SHA"
+    changes:
+      - file: .github/workflows/build-installer.yml
+        what: python-version 3.8 → 3.10, step name updated
+      - file: .github/actions/test-prep/action.yaml
+        what: >
+          setup-python v5 (a26af69b) → v6.2.0 (a309ff8b),
+          download-artifact v4 (d3f86a10) → v8 (3e5f45b2)
+      - file: pyproject.toml
+        what: black target-version py35 → py310
+      - file: tox.ini
+        what: >
+          black 21.4b2 → 24.10.0 (supports py310),
+          drop click==7.1.2 pin (no longer needed),
+          add .tox_env to black exclude pattern
+      - file: installer/requirements.txt
+        what: >
+          removed dead pysha3 conditional (python_version < 3.6),
+          replaced cp38 PyYAML wheel URL with PyYAML==6.0.2 from PyPI
+      - file: installer/common/file_utils.py
+        what: "black 24.10.0 reformat: 2**20 spacing"
+      - file: installer/vm_providers/errors.py
+        what: "black 24.10.0 reformat: trailing commas"
+      - file: installer/vm_providers/_multipass/_multipass_command.py
+        what: "black 24.10.0 reformat: trailing commas"
+
+  - name: pin-actions-to-sha
+    status: already-pinned
+    note: >
+      All 31 external GitHub Actions were already SHA-pinned.
+      Updated 2 stale SHAs in test-prep composite action.
+
+files_not_changed:
+  - path: snap/snapcraft.yaml
+    reason: Already references python3.10 (libpython3.10, python3.10-minimal, etc.)
+  - path: microk8s-resources/actions/common/utils.sh
+    reason: Already sets PYTHONPATH to python3.10
+  - path: .github/workflows/check-formatting.yml
+    reason: Uses system tox, no explicit python-version
+  - path: .github/workflows/check-unit-tests.yml
+    reason: Uses system tox/pip3, no explicit python-version

@@ -18,39 +18,24 @@ priority_repositories:
   - name: k8s-operator
     org: canonical
     url: https://github.com/canonical/k8s-operator
-    status: in-progress
-    pr: https://github.com/canonical/k8s-operator/pull/913
-    author: louiseschmidtgen
-    notes: PR opened for action SHA pinning
+    status: todo
 
   - name: k8s-dqlite
     org: canonical
     url: https://github.com/canonical/k8s-dqlite
-    status: in-progress
-    pr: https://github.com/canonical/k8s-dqlite/pull/354
-    author: louiseschmidtgen
-    notes: PR opened for action SHA pinning
+    status: todo
 
   - name: k8sd
     org: canonical
     url: https://github.com/canonical/k8sd
-    status: in-progress
-    pr: https://github.com/canonical/k8sd/pull/30
-    author: louiseschmidtgen
-    notes: PR opened for action SHA pinning
+    status: todo
 
   - name: cluster-api-k8s
     org: canonical
     url: https://github.com/canonical/cluster-api-k8s
-    status: in-progress
-    pr: https://github.com/canonical/cluster-api-k8s/pull/216
-    author: louiseschmidtgen
-    notes: PR opened for action SHA pinning
+    status: todo
 
   - name: microk8s
     org: canonical
     url: https://github.com/canonical/microk8s
-    status: in-progress
-    pr: https://github.com/canonical/microk8s/pull/5449
-    author: louiseschmidtgen
-    notes: PR opened for action SHA pinning
+    status: todo

@@ -60,14 +60,14 @@ git ls-remote --tags https://github.com/actions/checkout v4
 
 ### Priority repositories
 
-| # | Repository | Status |
-|---|------------|--------|
-| 1 | [k8s-snap](https://github.com/canonical/k8s-snap) | � [PR #2491](https://github.com/canonical/k8s-snap/pull/2491) (bschimke95) |
-| 2 | [k8s-operator](https://github.com/canonical/k8s-operator) | 🔲 To do |
-| 3 | [k8s-dqlite](https://github.com/canonical/k8s-dqlite) | 🔲 To do |
-| 4 | [k8sd](https://github.com/canonical/k8sd) | 🔲 To do |
-| 5 | [cluster-api-k8s](https://github.com/canonical/cluster-api-k8s) | 🔲 To do |
-| 6 | [microk8s](https://github.com/canonical/microk8s) | 🔲 To do |
+| #   | Repository                                                      | Status                                                                     |
+| --- | --------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| 1   | [k8s-snap](https://github.com/canonical/k8s-snap)               | � [PR #2491](https://github.com/canonical/k8s-snap/pull/2491) (bschimke95) |
+| 2   | [k8s-operator](https://github.com/canonical/k8s-operator)       | 🔲 To do                                                                    |
+| 3   | [k8s-dqlite](https://github.com/canonical/k8s-dqlite)           | 🔲 To do                                                                    |
+| 4   | [k8sd](https://github.com/canonical/k8sd)                       | 🔲 To do                                                                    |
+| 5   | [cluster-api-k8s](https://github.com/canonical/cluster-api-k8s) | 🔲 To do                                                                    |
+| 6   | [microk8s](https://github.com/canonical/microk8s)               | 🔲 To do                                                                    |
 
 ### Broader rollout
 

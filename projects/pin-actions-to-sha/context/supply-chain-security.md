@@ -44,13 +44,13 @@ This gives:
 Look up current SHAs before creating PRs. Here are some frequently used
 actions (SHAs will need to be verified at PR time):
 
-| Action | Tag | How to find SHA |
-|--------|-----|-----------------|
-| `actions/checkout` | `v4` | `git ls-remote https://github.com/actions/checkout v4` |
-| `actions/setup-go` | `v5` | `git ls-remote https://github.com/actions/setup-go v5` |
-| `actions/setup-python` | `v5` | `git ls-remote https://github.com/actions/setup-python v5` |
+| Action                    | Tag  | How to find SHA                                               |
+| ------------------------- | ---- | ------------------------------------------------------------- |
+| `actions/checkout`        | `v4` | `git ls-remote https://github.com/actions/checkout v4`        |
+| `actions/setup-go`        | `v5` | `git ls-remote https://github.com/actions/setup-go v5`        |
+| `actions/setup-python`    | `v5` | `git ls-remote https://github.com/actions/setup-python v5`    |
 | `actions/upload-artifact` | `v4` | `git ls-remote https://github.com/actions/upload-artifact v4` |
-| `github/codeql-action/*` | `v3` | `git ls-remote https://github.com/github/codeql-action v3` |
+| `github/codeql-action/*`  | `v3` | `git ls-remote https://github.com/github/codeql-action v3`    |
 
 ## Process per Repository
 
