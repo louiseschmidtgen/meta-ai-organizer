@@ -1,41 +1,62 @@
 ---
-description: "Review a teammate's PR from a Jira ticket — fetch, analyze, post review"
+description: "Code review from any source — Jira ticket, GitHub PR URL, or GitHub comment URL"
 ---
 
-# Review Ticket — Jira-to-PR Code Review Workflow
+# Review — Code Review Workflow
 
 You are performing a code review on behalf of the user. Follow the reviewer role in `.github/prompts/reviewer.prompt.md` for review standards and output format.
 
+## Input
+
+The user provides **one** of:
+
+| Input type            | Example                                                               |
+| --------------------- | --------------------------------------------------------------------- |
+| Jira ticket key       | `KU-1234`                                                             |
+| GitHub PR URL         | `https://github.com/canonical/k8s-snap/pull/2517`                     |
+| GitHub review/comment | `https://github.com/canonical/repo/pull/113#pullrequestreview-408...` |
+
+Detect which type was given, then follow the matching path below.
+
 ## Workflow
 
-### Step 1 — Fetch the Jira ticket
+### Step 1 — Resolve the input to a PR
 
-Use Atlassian MCP to fetch the ticket details:
+**If Jira ticket:**
 
-- Ticket key: `{{TICKET}}` (e.g. `KU-1234`)
-- Read: summary, description, acceptance criteria, comments, linked issues
-- Note the assignee (who wrote the code) and any relevant context
+1. Fetch ticket via Atlassian MCP (`cloudId: warthogs.atlassian.net`)
+2. Read: summary, description, acceptance criteria, comments, linked issues
+3. Find the PR:
+   - Check the ticket's remote links for GitHub PR URLs
+   - Search GitHub for branches matching the ticket key (e.g. `KU-1234/`)
+   - Search open PRs across `canonical` and `charmed-kubernetes` orgs by the assignee
+4. If multiple PRs found, list them and ask the user which to review
+5. If no PR found, tell the user and stop
 
-### Step 2 — Find the associated PR
+**If GitHub PR URL:**
 
-Look for the PR in this order:
+1. Parse owner, repo, and PR number from the URL
+2. Fetch PR details via GitHub MCP
 
-1. **Jira links** — check the ticket's remote links / development panel for GitHub PR URLs
-2. **Branch search** — search GitHub for branches matching the ticket key (e.g. `KU-1234/`)
-3. **PR search** — search open PRs across `canonical` and `charmed-kubernetes` orgs by the assignee or related keywords
-4. If multiple PRs are found, list them and ask the user which to review
-5. If no PR is found, tell the user and stop
+**If GitHub review/comment URL:**
 
-### Step 3 — Understand the context
+1. Parse owner, repo, PR number, and review/comment ID from the URL
+2. Fetch PR details and the specific review/comment via GitHub MCP
+3. Note the reviewer's feedback — this is what we're responding to
+4. Determine the mode:
+   - **User is the PR author** → respond to reviewer feedback (Step 7)
+   - **User is NOT the PR author** → review the PR (Steps 2–6)
+
+### Step 2 — Understand the context
 
 Before reading code, understand **what** the PR is supposed to do:
 
-1. Re-read the Jira ticket description and acceptance criteria
-2. Read the PR description
-3. Check if there are linked design docs or related tickets
+1. Read the PR description and any linked context (Jira ticket if available, design docs)
+2. Read existing reviews and comments — don't repeat what others have already said
+3. If a specific review/comment was provided, read it carefully
 4. Form a mental model: "This PR should do X to solve Y"
 
-### Step 4 — Fetch and analyze the diff
+### Step 3 — Fetch and analyze the diff
 
 1. Use GitHub MCP to read the PR diff (files changed, additions, deletions)
 2. For large PRs (>500 lines changed), skim the file list first and prioritize:
@@ -45,15 +66,27 @@ Before reading code, understand **what** the PR is supposed to do:
    - Test files (review last — check coverage, not style)
 3. For each changed file, read enough surrounding context to understand the change
 4. If the PR touches a repo you can clone, consider cloning to read full file context
+5. Verify pinned action SHAs against their tagged releases (for CI/workflow changes)
 
-### Step 5 — Perform the review
+### Step 4 — Perform the review
 
 Apply the full reviewer checklist from `.github/prompts/reviewer.prompt.md`. Additionally check:
 
-- **Does it match the ticket?** — Does the code actually implement what the Jira ticket asked for?
-- **Acceptance criteria** — Are all acceptance criteria from the ticket satisfied?
-- **Missing work** — Is anything from the ticket description NOT addressed by the PR?
-- **Scope creep** — Does the PR do things NOT requested in the ticket?
+- **Does it match the intent?** — Does the code implement what the PR/ticket describes?
+- **Acceptance criteria** — Are all stated criteria satisfied?
+- **Missing work** — Is anything described but NOT addressed?
+- **Scope creep** — Does the PR do things NOT requested?
+- **PR description accuracy** — Does the description match what the code actually does?
+
+For each finding, include a **concrete code suggestion** when possible using GitHub's suggestion syntax:
+
+````markdown
+```suggestion
+corrected code here
+```
+````
+
+This lets the PR author apply fixes with one click.
 
 Structure the review as:
 
@@ -64,10 +97,10 @@ Structure the review as:
 **Author:** {{AUTHOR}}
 **Repo:** {{ORG}}/{{REPO}}
 
-### Ticket alignment
+### Alignment
 
-- [ ] PR implements what the ticket describes
-- [ ] All acceptance criteria addressed
+- [ ] PR implements what it describes
+- [ ] All stated criteria addressed
 - [ ] No unrelated changes (scope creep)
 
 ### Findings
@@ -92,27 +125,47 @@ Structure the review as:
 - Verdict: APPROVE / REQUEST CHANGES / NEEDS DISCUSSION
 ```
 
-### Step 6 — Present to user before posting
+### Step 5 — Present to user before posting
 
 **Always show the full review to the user first.** Ask:
 
-> "Ready to post this review on the PR? I'll submit as REQUEST CHANGES / APPROVE / COMMENT. Shall I proceed, or would you like to adjust anything?"
+> "Ready to post this review? I'll submit as APPROVE / REQUEST CHANGES / COMMENT. Shall I proceed, or would you like to adjust anything?"
 
-### Step 7 — Post the review (only after user approval)
+### Step 6 — Post the review (only after user approval)
 
 Use GitHub MCP to submit the review on the PR:
 
-1. Create a pending review
-2. Add line-specific comments for each finding (if applicable)
-3. Submit with the appropriate verdict (APPROVE / REQUEST_CHANGES / COMMENT)
+1. If the user is the PR author → submit as COMMENT (GitHub blocks self-approval)
+2. If the user is NOT the author → submit with the appropriate verdict (APPROVE / REQUEST_CHANGES / COMMENT)
+3. For findings with code suggestions, post as line-specific review comments using GitHub's suggestion syntax so the author can apply them with one click
+4. For general observations, include in the review body
+
+### Step 7 — Respond to review feedback (when user is the PR author)
+
+If the user provided a review/comment URL and they are the PR author:
+
+1. Analyze each point the reviewer raised
+2. Triage each point:
+   - **Actionable fix** — make the code/description change, then reply explaining what was done
+   - **Question** — draft a clear answer with evidence (e.g. tool output, docs links)
+   - **Disagreement** — draft a respectful reply explaining the rationale
+   - **Out of scope** — acknowledge and suggest follow-up work
+3. If changes are needed:
+   - Clone the repo and check out the PR branch
+   - Make fixes, run lint/tests
+   - Stage changes and give the user the commit command (they sign all commits)
+   - Update the PR description if it was inaccurate
+4. Draft reply comment(s) and show to the user
+
+🚦 **Gate: Ask user before posting replies or pushing changes.**
 
 ## Variables
 
-| Variable     | Description     | Example   |
-| ------------ | --------------- | --------- |
-| `{{TICKET}}` | Jira ticket key | `KU-1234` |
+| Variable    | Description                                    | Example                                           |
+| ----------- | ---------------------------------------------- | ------------------------------------------------- |
+| `{{INPUT}}` | Jira ticket key, GitHub PR URL, or comment URL | `KU-1234` or `https://github.com/org/repo/pull/1` |
 
-Everything else is discovered automatically from the ticket and PR.
+Everything else is discovered automatically.
 
 ## Tips
 
@@ -120,3 +173,6 @@ Everything else is discovered automatically from the ticket and PR.
 - If you're unsure about domain-specific logic, flag it as 🟡 and suggest the user verify.
 - For Go code, check error handling rigorously — it's the #1 source of bugs.
 - For CI/workflow changes, apply the DevOps and Security checklists too.
+- Don't repeat findings already raised by other reviewers — reference and agree instead.
+- When verifying tool output (Bandit, golangci-lint, etc.), clone and re-run locally for evidence.
+- If the input is a review comment and the user is the author, focus on responding — not re-reviewing.
