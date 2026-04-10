@@ -54,8 +54,11 @@ A brief overview kept current at project milestones: what the project does, curr
 
 - Commit messages use [Conventional Commits](https://www.conventionalcommits.org/): `feat:`, `fix:`, `ci:`, `docs:`, `refactor:`, `test:`
 - Branch names include Jira ticket prefix: `KU-XXXX/description`
+- **Never put Jira ticket keys on GitHub** — not in PR titles, PR bodies, commit messages, or review comments (branch names are the sole exception)
 - Progress is tracked in YAML files (`PROGRESS.yaml`) per project
 - Scripts are saved in the project's `scripts/` directory and should be idempotent and safe to re-run
+- Jira issue type: **Story** by default, **Spike** for exploratory/research work
+- Always include a story point estimate (`customfield_10016`) when creating Jira tickets
 
 ## Available integrations
 
