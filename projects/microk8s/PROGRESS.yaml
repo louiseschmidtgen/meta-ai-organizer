@@ -4,7 +4,7 @@ fork: louiseschmidtgen/microk8s-1
 branch: python-3.10-bump
 clone: /tmp/microk8s-python-bump
 pr: https://github.com/canonical/microk8s/pull/5453
-status: pr-open
+status: merged
 
 ci:
   cla-check: pass
@@ -13,7 +13,7 @@ ci:
 
 tasks:
   - name: python-3.10-bump
-    status: pr-open
+    status: merged
     commit: "ci: bump Python to 3.10 and pin actions to SHA"
     changes:
       - file: .github/workflows/build-installer.yml

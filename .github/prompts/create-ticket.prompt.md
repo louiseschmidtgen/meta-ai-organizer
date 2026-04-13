@@ -13,7 +13,8 @@ You are creating a Jira ticket in the KU (Kubernetes-ENG) project on `warthogs.a
 The user will describe what needs to be done. Extract:
 
 - **Summary** — concise one-line title
-- **Description** — what the task involves, why it's needed, acceptance criteria
+- **Description** — what the task involves, why it's needed
+- **Acceptance Criteria** — checklist of verifiable conditions for done
 - **Type** — Story (default) or Spike (exploratory/research work)
 - **Story points** — estimate based on complexity (max 3 per card):
   - 1 = trivial (typo fix, config change, small review)
@@ -28,6 +29,8 @@ The user will describe what needs to be done. Extract:
    - Or ask the user which sprint/pulse to add it to
 2. Ask the user which epic (parent) to link to, or suggest one based on context:
    - KU-5581 = "Security Actions - March 2026" (security hardening, SAST, pinning)
+   - KU-5765 = "CVE Remediation — High & Critical Vulnerability Backlog"
+   - KU-5766 = "Pod Patrol — AI-Assisted Security Maintenance for Canonical Kubernetes"
    - If unsure, ask
 
 ### Step 3 — Present before creating
@@ -44,7 +47,11 @@ Priority: Medium (default)
 Assignee: Louise Schmidtgen
 
 Description:
-<formatted description with acceptance criteria>
+<formatted description>
+
+Acceptance Criteria:
+- [ ] <criterion 1>
+- [ ] <criterion 2>
 ```
 
 Ask: "Look good? Anything to adjust before I create it?"
@@ -60,9 +67,34 @@ Use Atlassian MCP to create the issue:
 - Include in `additional_fields`:
   - `customfield_10016`: story points estimate
   - `customfield_10020`: sprint ID
+  - `customfield_10614`: acceptance criteria — **must be ADF format** (taskList with taskItem nodes, state "TODO")
   - `parent`: epic key
   - `priority`: `{"name": "Medium"}`
   - `assignee`: `{"accountId": "712020:f1305b2b-2c08-4b28-87b8-85031d178a6f"}`
+
+#### Acceptance Criteria ADF format
+
+`customfield_10614` requires Atlassian Document Format. Use this structure:
+
+```json
+{
+  "type": "doc",
+  "version": 1,
+  "content": [{
+    "type": "taskList",
+    "attrs": { "localId": "ac-1" },
+    "content": [
+      {
+        "type": "taskItem",
+        "attrs": { "localId": "ac-1-1", "state": "TODO" },
+        "content": [{ "type": "text", "text": "Criterion text here" }]
+      }
+    ]
+  }]
+}
+```
+
+Increment `localId` for each item (ac-1-1, ac-1-2, etc.).
 
 ### Step 5 — Confirm
 
@@ -86,11 +118,6 @@ Structure the description in markdown:
 
 - <specific task 1>
 - <specific task 2>
-
-## Acceptance Criteria
-
-- [ ] <criterion 1>
-- [ ] <criterion 2>
 
 ## Repos affected
 
