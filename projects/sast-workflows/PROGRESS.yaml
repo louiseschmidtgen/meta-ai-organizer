@@ -36,7 +36,7 @@ pilot:
     semgrep-pr: https://github.com/canonical/k8s-snap/pull/2468
     bandit: merged
     bandit-pr: https://github.com/canonical/k8s-snap/pull/2466
-    dep-pinning: pr-open
+    dep-pinning: merged
     dep-pinning-pr: https://github.com/canonical/k8s-snap/pull/2492
 
 # ──────────────────────────────────────────────
@@ -44,29 +44,29 @@ pilot:
 # ──────────────────────────────────────────────
 batch_1:
   - repo: canonical/calico-rocks
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/calico-rocks/pull/7
   - repo: canonical/canonical-kubernetes-release-ci
     semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/canonical-kubernetes-release-ci/pull/84
   - repo: canonical/cert-manager-rock
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/cert-manager-rock/pull/13
   - repo: canonical/charm-microk8s
     semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/charm-microk8s/pull/141
   - repo: canonical/charms.proxylib
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/charms.proxylib/pull/10
   - repo: canonical/charms.reactive
     semgrep: pr-open
@@ -95,18 +95,18 @@ batch_1:
     pr: https://github.com/canonical/cluster-api-control-plane-provider-microk8s/pull/79
   - repo: canonical/cluster-api-k8s
     semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/cluster-api-k8s/pull/218
   - repo: canonical/cluster-autoscaler-rock
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/cluster-autoscaler-rock/pull/20
   - repo: canonical/contour-rocks
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/contour-rocks/pull/16
   - repo: canonical/coredns-rock
     semgrep: pr-open
@@ -130,13 +130,13 @@ batch_1:
     pr: https://github.com/canonical/csi-rocks/pull/39
   - repo: canonical/docker-registry-charm
     semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/docker-registry-charm/pull/77
   - repo: canonical/envoy-rock
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/envoy-rock/pull/30
   - repo: canonical/etcd-operator
     semgrep: pr-open
@@ -173,18 +173,18 @@ batch_1:
 batch_2:
   - repo: canonical/harbor-rocks
     semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/harbor-rocks/pull/31
   - repo: canonical/hostpath-provisioner
-    semgrep: pr-open
+    semgrep: merged
     bandit: not-applicable
-    dep-pinning: pr-open
+    dep-pinning: merged
     pr: https://github.com/canonical/hostpath-provisioner/pull/15
   - repo: canonical/infra-backup-operator
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/infra-backup-operator/pull/20
   - repo: canonical/ingress-nginx-rocks
     semgrep: pr-open
@@ -207,13 +207,13 @@ batch_2:
     pr: https://github.com/canonical/interface-tls-certificates/pull/40
   - repo: canonical/joule
     semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/joule/pull/37
   - repo: canonical/k8s-bundles
-    semgrep: pr-open
+    semgrep: merged
     bandit: not-applicable
-    dep-pinning: pr-open
+    dep-pinning: merged
     pr: https://github.com/canonical/k8s-bundles/pull/60
   - repo: canonical/k8s-conformance
     semgrep: no-github-dir
@@ -221,23 +221,23 @@ batch_2:
     dep-pinning: no-github-dir
   - repo: canonical/k8s-dqlite
     semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/k8s-dqlite/pull/355
   - repo: canonical/k8s-microcluster
-    semgrep: pr-open
+    semgrep: merged
     bandit: not-applicable
-    dep-pinning: pr-open
+    dep-pinning: merged
     pr: https://github.com/canonical/k8s-microcluster/pull/7
   - repo: canonical/k8s-operator
     semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/k8s-operator/pull/920
   - repo: canonical/k8s-snap-api
-    semgrep: pr-open
+    semgrep: merged
     bandit: not-applicable
-    dep-pinning: pr-open
+    dep-pinning: merged
     pr: https://github.com/canonical/k8s-snap-api/pull/54
   - repo: canonical/k8s-test-harness
     semgrep: pr-open
@@ -301,9 +301,9 @@ batch_2:
 # ──────────────────────────────────────────────
 batch_3:
   - repo: canonical/longhorn-rocks
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/longhorn-rocks/pull/40
   - repo: canonical/mayastor
     semgrep: pr-open
@@ -314,18 +314,18 @@ batch_3:
   - repo: canonical/mayastor-control-plane
     semgrep: pr-open
     bandit: pr-open
-    dep-pinning: pr-open
+    dep-pinning: merged
     pr: https://github.com/canonical/mayastor-control-plane/pull/4
     bandit-fix-pr: https://github.com/canonical/mayastor-control-plane/pull/5
   - repo: canonical/metallb-rocks
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/metallb-rocks/pull/28
   - repo: canonical/metrics-server-rock
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/metrics-server-rock/pull/23
   - repo: canonical/microk8s
     semgrep: pr-open
@@ -345,13 +345,13 @@ batch_3:
     pr: https://github.com/canonical/microk8s-aws-addons/pull/30
   - repo: canonical/microk8s-benchmarks
     semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/microk8s-benchmarks/pull/26
   - repo: canonical/microk8s-cluster-agent
-    semgrep: pr-open
+    semgrep: merged
     bandit: not-applicable
-    dep-pinning: pr-open
+    dep-pinning: merged
     pr: https://github.com/canonical/microk8s-cluster-agent/pull/74
   - repo: canonical/microk8s-community-addons
     semgrep: pr-open
@@ -383,13 +383,13 @@ batch_3:
     dep-pinning: no-push-access
   - repo: canonical/multus-rock
     semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/multus-rock/pull/19
   - repo: canonical/mutating-pebble-webhook-rocks
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/mutating-pebble-webhook-rocks/pull/33
   - repo: canonical/nrpe-external-master-interface
     semgrep: no-github-dir
@@ -433,13 +433,13 @@ batch_3:
 batch_4:
   - repo: canonical/rawfile-localpv-operator
     semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/rawfile-localpv-operator/pull/14
   - repo: canonical/serialized-data-interface
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/serialized-data-interface/pull/57
     bandit-fix-pr: https://github.com/canonical/serialized-data-interface/pull/58
   - repo: canonical/sriov-dpdk-rocks
@@ -452,19 +452,19 @@ batch_4:
     bandit: no-push-access
     dep-pinning: no-push-access
   - repo: canonical/velero-rocks
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/velero-rocks/pull/20
   - repo: canonical/vsphere-csi-rocks
     semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/vsphere-csi-rocks/pull/8
   - repo: canonical/whereabouts-rock
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/whereabouts-rock/pull/20
   - repo: charmed-kubernetes/.github
     semgrep: pr-open
@@ -767,9 +767,9 @@ batch_6:
     bandit: no-github-dir
     dep-pinning: no-github-dir
   - repo: charmed-kubernetes/jenkins
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/charmed-kubernetes/jenkins/pull/1673
   - repo: charmed-kubernetes/kube-bench-config
     semgrep: no-github-dir
