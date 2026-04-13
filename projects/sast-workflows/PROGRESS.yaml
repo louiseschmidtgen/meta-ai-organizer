@@ -109,9 +109,9 @@ batch_1:
     dep-pinning: merged
     pr: https://github.com/canonical/contour-rocks/pull/16
   - repo: canonical/coredns-rock
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/coredns-rock/pull/66
   - repo: canonical/cri-o-snap
     semgrep: pr-open
@@ -124,9 +124,9 @@ batch_1:
     dep-pinning: pr-open
     pr: https://github.com/canonical/csi-driver-nfs-rocks/pull/13
   - repo: canonical/csi-rocks
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/csi-rocks/pull/39
   - repo: canonical/docker-registry-charm
     semgrep: pr-open
@@ -149,9 +149,9 @@ batch_1:
     dep-pinning: pr-open
     pr: https://github.com/canonical/etcd-snaps/pull/34
   - repo: canonical/falco-rocks
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/falco-rocks/pull/27
   - repo: canonical/fluent-bit-rock
     semgrep: pr-open
@@ -172,7 +172,7 @@ batch_1:
 # ──────────────────────────────────────────────
 batch_2:
   - repo: canonical/harbor-rocks
-    semgrep: pr-open
+    semgrep: merged
     bandit: merged
     dep-pinning: merged
     pr: https://github.com/canonical/harbor-rocks/pull/31
@@ -220,7 +220,7 @@ batch_2:
     bandit: no-github-dir
     dep-pinning: no-github-dir
   - repo: canonical/k8s-dqlite
-    semgrep: pr-open
+    semgrep: merged
     bandit: merged
     dep-pinning: merged
     pr: https://github.com/canonical/k8s-dqlite/pull/355
@@ -382,7 +382,7 @@ batch_3:
     bandit: no-push-access
     dep-pinning: no-push-access
   - repo: canonical/multus-rock
-    semgrep: pr-open
+    semgrep: merged
     bandit: merged
     dep-pinning: merged
     pr: https://github.com/canonical/multus-rock/pull/19
@@ -443,9 +443,9 @@ batch_4:
     pr: https://github.com/canonical/serialized-data-interface/pull/57
     bandit-fix-pr: https://github.com/canonical/serialized-data-interface/pull/58
   - repo: canonical/sriov-dpdk-rocks
-    semgrep: pr-open
-    bandit: pr-open
-    dep-pinning: pr-open
+    semgrep: merged
+    bandit: merged
+    dep-pinning: merged
     pr: https://github.com/canonical/sriov-dpdk-rocks/pull/16
   - repo: canonical/ubuntu.com
     semgrep: no-push-access
