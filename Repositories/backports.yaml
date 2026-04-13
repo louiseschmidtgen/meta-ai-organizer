@@ -1,0 +1,278 @@
+# Backport Configuration
+# Maps repositories to their default branch and active release branches.
+#
+# Used by the backport prompt (.github/prompts/backport.prompt.md) to determine
+# which branches a PR should be cherry-picked to.
+#
+# Branch naming conventions:
+#   canonical/k8s-snap family:      release-{major}.{minor}   (e.g. release-1.32)
+#   canonical/microk8s:             {major}.{minor}            (e.g. 1.32)
+#   charmed-kubernetes/*:           release_{major}.{minor}    (e.g. release_1.32)
+#   canonical/k8s-snap-api:         v{major}.{minor}           (e.g. v1.2)
+#
+# Only list branches that are actively maintained.
+# Remove EOL branches periodically.
+#
+# Last updated: 2026-04-13
+
+organizations:
+  # ──────────────────────────────────────────────
+  # canonical
+  # ──────────────────────────────────────────────
+  - name: canonical
+    repositories:
+      - repo: k8s-snap
+        default-branch: main
+        release-branches:
+          - release-1.32
+          - release-1.33
+          - release-1.34
+          - release-1.35
+
+      - repo: k8s-operator
+        default-branch: main
+        release-branches:
+          - release-1.32
+          - release-1.33
+          - release-1.34
+          - release-1.35
+
+      - repo: k8s-snap-api
+        default-branch: main
+        release-branches:
+          - v1.1
+          - v1.2
+
+      - repo: k8s-dqlite
+        default-branch: master
+        release-branches:
+          - v1.1
+          - v1.2
+          - v1.3
+          - v1.7
+          - v1.8
+
+      - repo: k8s-microcluster
+        default-branch: main
+        release-branches: []
+
+      - repo: cluster-api-k8s
+        default-branch: main
+        release-branches:
+          - release-0.4
+
+      - repo: cluster-api-bootstrap-provider-microk8s
+        default-branch: main
+        release-branches: []
+
+      - repo: cluster-api-control-plane-provider-microk8s
+        default-branch: main
+        release-branches: []
+
+      - repo: microk8s
+        default-branch: master
+        release-branches:
+          - "1.30"
+          - "1.31"
+          - "1.32"
+          - "1.33"
+          - "1.34"
+          - "1.30-strict"
+          - "1.31-strict"
+          - "1.32-strict"
+          - "1.33-strict"
+          - "1.34-strict"
+
+      - repo: microk8s-cluster-agent
+        default-branch: main
+        release-branches: []
+
+      - repo: microk8s-core-addons
+        default-branch: main
+        release-branches: []
+
+      - repo: microk8s-community-addons
+        default-branch: main
+        release-branches: []
+
+      - repo: charm-microk8s
+        default-branch: master
+        release-branches:
+          - release-1.28
+
+      - repo: kine
+        default-branch: main
+        release-branches: []
+
+      - repo: k8s-workflows
+        default-branch: main
+        release-branches: []
+
+      - repo: k8s-test-harness
+        default-branch: main
+        release-branches: []
+
+      - repo: k8s-bundles
+        default-branch: main
+        release-branches: []
+
+      - repo: joule
+        default-branch: main
+        release-branches: []
+
+      - repo: etcd-operator
+        default-branch: main
+        release-branches: []
+
+      - repo: hostpath-provisioner
+        default-branch: main
+        release-branches: []
+
+      - repo: infra-backup-operator
+        default-branch: main
+        release-branches: []
+
+      - repo: rawfile-localpv
+        default-branch: main
+        release-branches: []
+
+      - repo: rawfile-localpv-operator
+        default-branch: main
+        release-branches: []
+
+  # ──────────────────────────────────────────────
+  # charmed-kubernetes
+  # ──────────────────────────────────────────────
+  - name: charmed-kubernetes
+    repositories:
+      - repo: bundle
+        default-branch: main
+        release-branches:
+          - release_1.28
+          - release_1.29
+          - release_1.30
+          - release_1.31
+          - release_1.32
+          - release_1.33
+          - release_1.34
+          - release_1.35
+
+      - repo: charm-kubernetes-control-plane
+        default-branch: main
+        release-branches:
+          - release_1.28
+          - release_1.29
+          - release_1.30
+          - release_1.31
+          - release_1.32
+          - release_1.33
+          - release_1.34
+          - release_1.35
+
+      - repo: charm-kubernetes-worker
+        default-branch: main
+        release-branches:
+          - release_1.28
+          - release_1.29
+          - release_1.30
+          - release_1.31
+          - release_1.32
+          - release_1.33
+          - release_1.34
+          - release_1.35
+
+      - repo: charm-calico
+        default-branch: main
+        release-branches:
+          - release_1.28
+          - release_1.29
+          - release_1.30
+          - release_1.31
+          - release_1.32
+          - release_1.33
+          - release_1.34
+          - release_1.35
+
+      - repo: charm-containerd
+        default-branch: main
+        release-branches:
+          - release_1.28
+          - release_1.29
+          - release_1.30
+          - release_1.31
+          - release_1.32
+          - release_1.33
+          - release_1.34
+          - release_1.35
+
+      - repo: charm-flannel
+        default-branch: main
+        release-branches:
+          - release_1.28
+          - release_1.29
+          - release_1.30
+          - release_1.31
+          - release_1.32
+          - release_1.33
+          - release_1.34
+          - release_1.35
+
+      - repo: charm-cilium
+        default-branch: main
+        release-branches:
+          - release_1.28
+          - release_1.29
+          - release_1.30
+          - release_1.31
+          - release_1.32
+          - release_1.33
+          - release_1.34
+          - release_1.35
+
+      - repo: charm-coredns
+        default-branch: main
+        release-branches:
+          - release_1.28
+          - release_1.29
+          - release_1.30
+          - release_1.31
+          - release_1.32
+          - release_1.33
+          - release_1.34
+          - release_1.35
+
+      - repo: charm-kubeapi-load-balancer
+        default-branch: main
+        release-branches:
+          - release_1.28
+          - release_1.29
+          - release_1.30
+          - release_1.31
+          - release_1.32
+          - release_1.33
+          - release_1.34
+          - release_1.35
+
+      - repo: charm-kubernetes-e2e
+        default-branch: main
+        release-branches:
+          - release_1.28
+          - release_1.29
+          - release_1.30
+          - release_1.31
+          - release_1.32
+          - release_1.33
+          - release_1.34
+          - release_1.35
+
+      - repo: ceph-csi-operator
+        default-branch: main
+        release-branches: []
+
+      - repo: actions-operator
+        default-branch: main
+        release-branches: []
+
+      - repo: cdk-addons
+        default-branch: main
+        release-branches: []
