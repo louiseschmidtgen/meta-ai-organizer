@@ -23,12 +23,12 @@ This follows the Kubeflow pattern: a developer builds the first charms, demonstr
 
 Self-hosted LLM serving as a first-class k8s-snap feature.
 
-| What | Upstream | Notes |
-|------|----------|-------|
-| Inference engine | [vLLM Production Stack](https://github.com/vllm-project/production-stack) (2.3k stars, Helm-based) | Reference K8s deployment for vLLM with router, autoscaling, observability |
-| Distributed inference | [llm-d](https://llm-d.ai/) (Red Hat-backed, v0.5) | K8s-native framework: inference scheduler, KV cache, prefill/decode disaggregation |
-| Local inference | [canonical/inference-snaps](https://github.com/canonical/inference-snaps) | **Already exists** — snaps that auto-detect CPU/GPU/NPU and optimize runtime+weights |
-| Model routing | [K8s Inference Gateway](https://gateway-api.sigs.k8s.io/geps/gep-3171/) | SIG extension for GPU-aware, model-aware routing |
+| What                  | Upstream                                                                                           | Notes                                                                                |
+| --------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| Inference engine      | [vLLM Production Stack](https://github.com/vllm-project/production-stack) (2.3k stars, Helm-based) | Reference K8s deployment for vLLM with router, autoscaling, observability            |
+| Distributed inference | [llm-d](https://llm-d.ai/) (Red Hat-backed, v0.5)                                                  | K8s-native framework: inference scheduler, KV cache, prefill/decode disaggregation   |
+| Local inference       | [canonical/inference-snaps](https://github.com/canonical/inference-snaps)                          | **Already exists** — snaps that auto-detect CPU/GPU/NPU and optimize runtime+weights |
+| Model routing         | [K8s Inference Gateway](https://gateway-api.sigs.k8s.io/geps/gep-3171/)                            | SIG extension for GPU-aware, model-aware routing                                     |
 
 **UX vision:**
 ```bash
@@ -44,12 +44,12 @@ Inference snaps already handle the single-node case. The gap is multi-node K8s d
 
 Manage, authenticate, and federate MCP (Model Context Protocol) servers so AI agents can securely access tools and data sources.
 
-| What | Upstream | Notes |
-|------|----------|-------|
-| MCP/A2A gateway | [agentgateway](https://github.com/agentgateway/agentgateway) (2.4k stars, Linux Foundation) | Proxy for agent-to-LLM, agent-to-tool, agent-to-agent traffic |
-| Auth & access control | agentgateway built-in | JWT, API keys, OAuth, CEL policy engine, rate limiting |
-| Tool federation | agentgateway MCP support | Connect LLMs to tools via MCP with transport support (stdio/HTTP/SSE) |
-| Guardrails | agentgateway guardrails | Regex, moderation APIs, custom webhooks for content filtering |
+| What                  | Upstream                                                                                    | Notes                                                                 |
+| --------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| MCP/A2A gateway       | [agentgateway](https://github.com/agentgateway/agentgateway) (2.4k stars, Linux Foundation) | Proxy for agent-to-LLM, agent-to-tool, agent-to-agent traffic         |
+| Auth & access control | agentgateway built-in                                                                       | JWT, API keys, OAuth, CEL policy engine, rate limiting                |
+| Tool federation       | agentgateway MCP support                                                                    | Connect LLMs to tools via MCP with transport support (stdio/HTTP/SSE) |
+| Guardrails            | agentgateway guardrails                                                                     | Regex, moderation APIs, custom webhooks for content filtering         |
 
 Solo.io originally built this (as Gloo Gateway → agentgateway), then donated it to the Linux Foundation. It's Apache-2.0 and the most mature MCP gateway project.
 
@@ -79,25 +79,25 @@ This matters because autonomous agents with tool access (file systems, databases
 
 ## Competitive Landscape
 
-| Player | What | Missing |
-|--------|------|---------|
-| **vLLM Production Stack** | K8s inference via Helm | No security hardening, no MCP/agent layer, no distribution |
-| **llm-d** (Red Hat) | K8s inference framework | Red Hat ecosystem, no MCP story |
-| **agentgateway** (LF) | MCP/A2A proxy | No inference, no container hardening, raw upstream only |
-| **NVIDIA NIM** | GPU-optimized inference | Proprietary, expensive, vendor lock-in |
-| **Ollama** | Local LLM runner | Single-node, no K8s, no enterprise features |
+| Player                    | What                    | Missing                                                    |
+| ------------------------- | ----------------------- | ---------------------------------------------------------- |
+| **vLLM Production Stack** | K8s inference via Helm  | No security hardening, no MCP/agent layer, no distribution |
+| **llm-d** (Red Hat)       | K8s inference framework | Red Hat ecosystem, no MCP story                            |
+| **agentgateway** (LF)     | MCP/A2A proxy           | No inference, no container hardening, raw upstream only    |
+| **NVIDIA NIM**            | GPU-optimized inference | Proprietary, expensive, vendor lock-in                     |
+| **Ollama**                | Local LLM runner        | Single-node, no K8s, no enterprise features                |
 
 Nobody combines: inference + MCP management + secured containers + enterprise distribution.
 
 ## Risks
 
-| Risk | Reality |
-|------|---------|
-| New product = hard to get buy-in | Follow Kubeflow playbook: build first, demo, get +1. Not asking for permission first |
-| llm-d is Red Hat-backed | Build on vLLM (vendor-neutral), support both engines |
-| agentgateway is Solo.io-dominated | It's a LF project (Apache-2.0), open governance |
-| AI bubble pops | Self-hosting demand *increases* when bubble pops — that's the thesis |
-| Small team bandwidth | Start with inference ROCK (exists as snap), iterate incrementally |
+| Risk                              | Reality                                                                              |
+| --------------------------------- | ------------------------------------------------------------------------------------ |
+| New product = hard to get buy-in  | Follow Kubeflow playbook: build first, demo, get +1. Not asking for permission first |
+| llm-d is Red Hat-backed           | Build on vLLM (vendor-neutral), support both engines                                 |
+| agentgateway is Solo.io-dominated | It's a LF project (Apache-2.0), open governance                                      |
+| AI bubble pops                    | Self-hosting demand *increases* when bubble pops — that's the thesis                 |
+| Small team bandwidth              | Start with inference ROCK (exists as snap), iterate incrementally                    |
 
 ## Phased Approach
 

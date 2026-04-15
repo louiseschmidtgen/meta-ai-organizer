@@ -8,7 +8,7 @@ You are performing a code review on behalf of the user. Follow the reviewer role
 
 ## Input
 
-The user provides **one** of:
+The user provides **one or more** of:
 
 | Input type            | Example                                                               |
 | --------------------- | --------------------------------------------------------------------- |
@@ -16,7 +16,7 @@ The user provides **one** of:
 | GitHub PR URL         | `https://github.com/canonical/k8s-snap/pull/2517`                     |
 | GitHub review/comment | `https://github.com/canonical/repo/pull/113#pullrequestreview-408...` |
 
-Detect which type was given, then follow the matching path below.
+If both a Jira ticket and a PR URL are given, use the Jira ticket for acceptance criteria context and the PR URL for the code review. Otherwise, detect which type was given and follow the matching path below.
 
 ## Workflow
 
@@ -58,7 +58,7 @@ Before reading code, understand **what** the PR is supposed to do:
 
 ### Step 3 — Fetch and analyze the diff
 
-1. Use GitHub MCP to read the PR diff (files changed, additions, deletions)
+1. Use GitHub MCP to read the PR diff (files changed, additions, deletions). If the MCP returns 404 (common for internal `canonical/*` repos), fall back to `gh pr diff` and `gh pr view` via the CLI.
 2. For large PRs (>500 lines changed), skim the file list first and prioritize:
    - New files (highest risk — no existing tests)
    - Modified core logic (business logic, auth, data handling)
@@ -67,6 +67,7 @@ Before reading code, understand **what** the PR is supposed to do:
 3. For each changed file, read enough surrounding context to understand the change
 4. If the PR touches a repo you can clone, consider cloning to read full file context
 5. Verify pinned action SHAs against their tagged releases (for CI/workflow changes)
+6. For CI/workflow PRs, check if the same changes need to apply to other long-lived branches (e.g. release branches, pre-release branches)
 
 ### Step 4 — Perform the review
 
@@ -78,15 +79,13 @@ Apply the full reviewer checklist from `.github/prompts/reviewer.prompt.md`. Add
 - **Scope creep** — Does the PR do things NOT requested?
 - **PR description accuracy** — Does the description match what the code actually does?
 
-For each finding, include a **concrete code suggestion** when possible using GitHub's suggestion syntax:
+For each finding, include a **concrete code suggestion** when possible. When posting via `gh pr review` (single review body), use fenced code blocks. When posting via GitHub MCP with line-comment support, use GitHub's suggestion syntax:
 
 ````markdown
 ```suggestion
 corrected code here
 ```
 ````
-
-This lets the PR author apply fixes with one click.
 
 Structure the review as:
 
@@ -123,13 +122,15 @@ Structure the review as:
 - 🟡 Warnings: Y
 - 🔵 Nits: Z
 - Verdict: APPROVE / REQUEST CHANGES / NEEDS DISCUSSION
+
+> **Note:** This PR review was created with the help of an AI assistant.
 ```
 
 ### Step 5 — Present to user before posting
 
 **Always show the full review to the user first.** Ask:
 
-> "Ready to post this review? I'll submit as APPROVE / REQUEST CHANGES / COMMENT. Shall I proceed, or would you like to adjust anything?"
+> "Ready to post this review? I'll submit as APPROVE / REQUEST CHANGES / COMMENT via `gh pr review`. Shall I proceed, or would you like to adjust anything?"
 
 ### Step 6 — Post the review (only after user approval)
 
@@ -137,8 +138,7 @@ Use GitHub MCP to submit the review on the PR:
 
 1. If the user is the PR author → submit as COMMENT (GitHub blocks self-approval)
 2. If the user is NOT the author → submit with the appropriate verdict (APPROVE / REQUEST_CHANGES / COMMENT)
-3. For findings with code suggestions, post as line-specific review comments using GitHub's suggestion syntax so the author can apply them with one click
-4. For general observations, include in the review body
+3. For line-specific findings, post as review comments via GitHub MCP when available; otherwise include all findings in the review body via `gh pr review`
 
 ### Step 7 — Respond to review feedback (when user is the PR author)
 

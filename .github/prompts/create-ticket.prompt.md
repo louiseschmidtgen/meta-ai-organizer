@@ -80,17 +80,19 @@ Use Atlassian MCP to create the issue:
 {
   "type": "doc",
   "version": 1,
-  "content": [{
-    "type": "taskList",
-    "attrs": { "localId": "ac-1" },
-    "content": [
-      {
-        "type": "taskItem",
-        "attrs": { "localId": "ac-1-1", "state": "TODO" },
-        "content": [{ "type": "text", "text": "Criterion text here" }]
-      }
-    ]
-  }]
+  "content": [
+    {
+      "type": "taskList",
+      "attrs": { "localId": "ac-1" },
+      "content": [
+        {
+          "type": "taskItem",
+          "attrs": { "localId": "ac-1-1", "state": "TODO" },
+          "content": [{ "type": "text", "text": "Criterion text here" }]
+        }
+      ]
+    }
+  ]
 }
 ```
 

@@ -1,0 +1,88 @@
+# Canonical MX (Maintained eXtended) source repositories
+# Launchpad forks of upstream projects with Canonical patches
+#
+# Each entry tracks:
+#   repo:           Launchpad git repository URL
+#   upstream_repo:  Upstream GitHub repository URL
+#   canonical_ref:  Branch(es) carrying Canonical patches
+#   upstream_ref:   Latest upstream tag/commit included in the Canonical branch
+
+sources:
+  - repo: git.launchpad.net/mx-containernetworking-plugins
+    upstream_repo: https://github.com/containernetworking/plugins
+    canonical_ref: canonical/pre-release-1.9
+    upstream_ref: v1.9.1
+
+  - repo: git.launchpad.net/mx-containerd
+    upstream_repo: https://github.com/containerd/containerd
+    canonical_ref: canonical/pre-release-2.3
+    upstream_ref: v2.3.0-beta.0
+
+  - repo: git.launchpad.net/mx-opencontainers-runc
+    upstream_repo: https://github.com/opencontainers/runc
+    canonical_ref: canonical/pre-release-1.4
+    upstream_ref: v1.4.1
+
+  - repo: git.launchpad.net/mx-coredns
+    upstream_repo: https://github.com/coredns/coredns
+    canonical_ref: canonical/pre-release-1.14
+    upstream_ref: v1.14.2
+
+  - repo: git.launchpad.net/mx-etcd
+    upstream_repo: https://github.com/etcd-io/etcd
+    canonical_ref: canonical/pre-release-3.6
+    upstream_ref: v3.6.9
+
+  - repo: git.launchpad.net/mx-golang
+    upstream_repo: https://github.com/golang/go
+    canonical_ref:
+      - canonical/pre-release-1.24
+      - canonical/pre-release-1.26
+    upstream_ref:
+      - go1.24.13
+      - go1.26.1
+
+  - repo: git.launchpad.net/mx-k8s-autoscaler
+    upstream_repo: https://github.com/kubernetes/autoscaler
+    canonical_ref: canonical/pre-release-1.36
+    upstream_ref: "master (89b1f7f)"
+
+  - repo: git.launchpad.net/mx-k8s-csi-external-attacher
+    upstream_repo: https://github.com/kubernetes-csi/external-attacher
+    canonical_ref: canonical/pre-release-4.11
+    upstream_ref: v4.11.0
+
+  - repo: git.launchpad.net/mx-k8s-csi-external-provisioner
+    upstream_repo: https://github.com/kubernetes-csi/external-provisioner
+    canonical_ref: canonical/pre-release-6.2
+    upstream_ref: v6.2.0
+
+  - repo: git.launchpad.net/mx-k8s-csi-external-resizer
+    upstream_repo: https://github.com/kubernetes-csi/external-resizer
+    canonical_ref: canonical/pre-release-2.1
+    upstream_ref: v2.1.0
+
+  - repo: git.launchpad.net/mx-k8s-csi-external-snapshotter
+    upstream_repo: https://github.com/kubernetes-csi/external-snapshotter
+    canonical_ref: canonical/pre-release-8.5
+    upstream_ref: v8.5.0
+
+  - repo: git.launchpad.net/mx-k8s-csi-livenessprobe
+    upstream_repo: https://github.com/kubernetes-csi/livenessprobe
+    canonical_ref: canonical/pre-release-2.18
+    upstream_ref: v2.18.0
+
+  - repo: git.launchpad.net/mx-k8s-csi-node-driver-registrar
+    upstream_repo: https://github.com/kubernetes-csi/node-driver-registrar
+    canonical_ref: canonical/pre-release-2.16
+    upstream_ref: v2.16.0
+
+  - repo: git.launchpad.net/mx-k8s-sigs-cri-tools
+    upstream_repo: https://github.com/kubernetes-sigs/cri-tools
+    canonical_ref: canonical/pre-release-1.36
+    upstream_ref: "master (f7235bf)"
+
+  - repo: git.launchpad.net/mx-kubernetes
+    upstream_repo: https://github.com/kubernetes/kubernetes
+    canonical_ref: canonical/pre-release-1.36
+    upstream_ref: v1.36.0-beta.0
