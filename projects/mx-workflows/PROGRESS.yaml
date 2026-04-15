@@ -1,0 +1,150 @@
+# MX Workflows — Progress Tracker
+#
+# Tracks workflow rollout across all MX source repositories.
+# Based on Berkay's canonical/updated-workflows branches with security hardening.
+#
+# Workflow types per repo:
+#   build     — Build binaries on PRs
+#   test      — Run tests on PRs
+#   vendor    — Auto-vendor go.mod/go.sum on PRs
+#   release   — Build + publish on tag push
+#   security  — SHA pinning, permissions, persist-credentials
+#
+# Statuses:
+#   todo              — Not started
+#   in-progress       — Branch created, working on it
+#   pr-open           — PR created, awaiting CI/review
+#   ci-failing        — PR open but CI failing
+#   merged            — PR merged
+#   not-applicable    — Doesn't apply to this repo
+
+started: 2026-04-15
+branch-pattern: KU-5591/louise-workflows
+base-branch: canonical/main
+source-branch: canonical/updated-workflows
+
+repos:
+  - repo: canonical/mx-containerd
+    status: pr-open
+    pr: https://github.com/canonical/mx-containerd/pull/24
+    branch: KU-5591/louise-workflows
+    build: pr-open
+    test: pr-open
+    vendor: pr-open
+    release: pr-open
+    security: pr-open
+    notes: "Fixed Go version (install-go used stale 1.24.9, go.mod needs 1.25.0)"
+
+  - repo: canonical/mx-opencontainers-runc
+    status: in-progress
+    branch: KU-5591/louise-workflows
+    build: in-progress
+    test: in-progress
+    vendor: in-progress
+    release: in-progress
+    security: in-progress
+    notes: "Security hardening applied, pending commit and PR"
+
+  - repo: canonical/mx-containernetworking-plugins
+    status: todo
+    build: todo
+    test: todo
+    vendor: todo
+    release: todo
+    security: todo
+
+  - repo: canonical/mx-coredns
+    status: todo
+    build: todo
+    test: todo
+    vendor: todo
+    release: todo
+    security: todo
+
+  - repo: canonical/mx-etcd
+    status: todo
+    build: todo
+    test: todo
+    vendor: todo
+    release: todo
+    security: todo
+
+  - repo: canonical/mx-golang
+    status: todo
+    build: todo
+    test: todo
+    vendor: todo
+    release: todo
+    security: todo
+
+  - repo: canonical/mx-k8s-autoscaler
+    status: todo
+    build: todo
+    test: todo
+    vendor: todo
+    release: todo
+    security: todo
+
+  - repo: canonical/mx-k8s-csi-external-attacher
+    status: todo
+    build: todo
+    test: todo
+    vendor: todo
+    release: todo
+    security: todo
+
+  - repo: canonical/mx-k8s-csi-external-provisioner
+    status: todo
+    build: todo
+    test: todo
+    vendor: todo
+    release: todo
+    security: todo
+
+  - repo: canonical/mx-k8s-csi-external-resizer
+    status: todo
+    build: todo
+    test: todo
+    vendor: todo
+    release: todo
+    security: todo
+
+  - repo: canonical/mx-k8s-csi-external-snapshotter
+    status: todo
+    build: todo
+    test: todo
+    vendor: todo
+    release: todo
+    security: todo
+
+  - repo: canonical/mx-k8s-csi-livenessprobe
+    status: todo
+    build: todo
+    test: todo
+    vendor: todo
+    release: todo
+    security: todo
+
+  - repo: canonical/mx-k8s-csi-node-driver-registrar
+    status: todo
+    build: todo
+    test: todo
+    vendor: todo
+    release: todo
+    security: todo
+
+  - repo: canonical/mx-k8s-sigs-cri-tools
+    status: todo
+    build: todo
+    test: todo
+    vendor: todo
+    release: todo
+    security: todo
+
+  - repo: canonical/mx-kubernetes
+    status: todo
+    build: todo
+    test: todo
+    vendor: todo
+    release: todo
+    security: todo
